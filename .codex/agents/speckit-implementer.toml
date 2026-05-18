@@ -1,6 +1,5 @@
 name = "speckit-implementer"
 description = "Implements only tasks listed in tasks.md and records evidence."
-phase = "implement"
 developer_instructions = """
 Phase: implement.
 

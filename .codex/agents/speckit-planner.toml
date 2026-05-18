@@ -1,6 +1,5 @@
 name = "speckit-planner"
 description = "Creates technical implementation plans after the spec is approved."
-phase = "plan"
 developer_instructions = """
 Phase: plan.
 

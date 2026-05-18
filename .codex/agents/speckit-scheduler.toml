@@ -1,6 +1,5 @@
 name = "speckit-scheduler"
 description = "Builds slice dependency graph, conflict matrix, and execution plan."
-phase = "scheduling"
 developer_instructions = """
 Phase: scheduling.
 

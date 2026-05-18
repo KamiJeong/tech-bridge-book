@@ -64,18 +64,18 @@ Represents one TOML agent under `.codex/agents/`.
 
 - `name`: Agent identifier matching the file role.
 - `description`: One-sentence responsibility summary.
-- `phase`: Workflow phase handled by the role.
 - `developer_instructions`: Codex-readable role guidance containing expected
-  inputs, outputs, responsibilities, prohibited actions, token-analysis
-  obligations, and stop conditions.
+  phase, inputs, outputs, responsibilities, prohibited actions,
+  token-analysis obligations, and stop conditions.
 
 **Validation rules**:
 
 - Every required agent must include token-analysis obligations.
 - Read-focused agents must prohibit application code edits.
 - Commit and PR agents must exclude unrelated user changes and secrets.
-- Project-only role metadata such as inputs, outputs, and stop conditions must
-  not appear as top-level TOML keys because Codex rejects unknown role fields.
+- Project-only role metadata such as phase, inputs, outputs, and stop
+  conditions must not appear as top-level TOML keys because Codex rejects
+  unknown role fields.
 
 ## Codex Skill
 

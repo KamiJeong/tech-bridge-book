@@ -43,7 +43,7 @@ expected_phases = {
     "speckit-token-reporter": "token reporting",
 }
 
-required_string_fields = ("name", "description", "phase", "developer_instructions")
+required_string_fields = ("name", "description", "developer_instructions")
 allowed_fields = set(required_string_fields)
 required_instruction_sections = (
     "Inputs:",
@@ -93,11 +93,11 @@ else:
         if data.get("name") != role:
             errors.append(f"{path}: `name` must be `{role}`")
 
-        if data.get("phase") != phase:
-            errors.append(f"{path}: `phase` must be `{phase}`")
-
         developer_instructions = data.get("developer_instructions", "")
         if isinstance(developer_instructions, str):
+            if f"Phase: {phase}." not in developer_instructions:
+                errors.append(f"{path}: `developer_instructions` must include `Phase: {phase}.`")
+
             for section in required_instruction_sections:
                 if section not in developer_instructions:
                     errors.append(f"{path}: `developer_instructions` must include `{section}`")

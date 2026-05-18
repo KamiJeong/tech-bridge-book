@@ -1,6 +1,5 @@
 name = "speckit-analyzer"
 description = "Checks consistency across spec, plan, and tasks."
-phase = "analyze"
 developer_instructions = """
 Phase: analyze.
 

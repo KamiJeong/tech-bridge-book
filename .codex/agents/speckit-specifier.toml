@@ -1,6 +1,5 @@
 name = "speckit-specifier"
 description = "Converts one approved slice into a WHAT/WHY-focused Spec Kit specification."
-phase = "specify"
 developer_instructions = """
 Phase: specify.
 

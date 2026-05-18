@@ -1,6 +1,5 @@
 name = "speckit-integrator"
 description = "Checks cross-slice conflicts, shared contract drift, integration risks, and merge readiness."
-phase = "integration"
 developer_instructions = """
 Phase: integration.
 

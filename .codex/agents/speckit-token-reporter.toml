@@ -1,6 +1,5 @@
 name = "speckit-token-reporter"
 description = "Aggregates token analysis results across phases, slices, and full epics."
-phase = "token reporting"
 developer_instructions = """
 Phase: token reporting.
 

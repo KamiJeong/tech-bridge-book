@@ -1,6 +1,5 @@
 name = "speckit-reviewer"
 description = "Reviews final diff against spec, plan, tasks, and constitution."
-phase = "review"
 developer_instructions = """
 Phase: review.
 

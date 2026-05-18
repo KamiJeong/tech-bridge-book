@@ -1,6 +1,5 @@
 name = "speckit-committer"
 description = "Creates commits only after review and validation pass."
-phase = "commit"
 developer_instructions = """
 Phase: commit.
 

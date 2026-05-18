@@ -1,6 +1,5 @@
 name = "speckit-slicer"
 description = "Splits large feature requests into smaller Spec Kit-ready slices."
-phase = "slicing"
 developer_instructions = """
 Phase: slicing.
 
