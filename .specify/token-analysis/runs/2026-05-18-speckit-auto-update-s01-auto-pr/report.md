@@ -1,12 +1,12 @@
 # Token Analysis Report: 2026-05-18-speckit-auto-update-s01-auto-pr
 
-Generated: 2026-05-18T06:50:57Z
+Generated: 2026-05-18T06:51:51Z
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Steps captured | 1 |
+| Steps captured | 2 |
 | Exact total tokens | 0 |
 | Estimated input tokens | 0 |
 | Estimated output tokens | 0 |
@@ -19,9 +19,11 @@ Generated: 2026-05-18T06:50:57Z
 | Phase | Capture method | Estimated total | Exact total |
 |-------|----------------|-----------------|-------------|
 | edit | unavailable | 0 | 0 |
+| token-reporting | unavailable | 0 | 0 |
 
 ## Missing Token Data
 - Exact token data unavailable for edit.
+- Exact token data unavailable for token-reporting.
 
 ## Recommendations
 
