@@ -1,0 +1,66 @@
+{
+  "run_label": "issue11-1779090113",
+  "timestamp": "2026-05-18T07:41:53Z",
+  "step_count": 7,
+  "tokens": {
+    "total": 0,
+    "estimated_input": 0,
+    "estimated_output": 0,
+    "estimated_total": 0
+  },
+  "most_expensive_phase": "analyze",
+  "missing_token_data": [
+    "analyze",
+    "clarify",
+    "implement",
+    "plan",
+    "review",
+    "specify",
+    "tasks"
+  ],
+  "budget_status": "No token budget file found; no budget enforcement applied.",
+  "steps": [
+    {
+      "phase": "analyze",
+      "capture_method": "estimated",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
+      "phase": "clarify",
+      "capture_method": "estimated",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
+      "phase": "implement",
+      "capture_method": "estimated",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
+      "phase": "plan",
+      "capture_method": "estimated",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
+      "phase": "review",
+      "capture_method": "estimated",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
+      "phase": "specify",
+      "capture_method": "estimated",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
+      "phase": "tasks",
+      "capture_method": "estimated",
+      "estimated_total": 0,
+      "total": 0
+    }
+  ]
+}

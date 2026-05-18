@@ -1,0 +1,30 @@
+{
+  "phase": "tasks",
+  "command": "speckit-tasks",
+  "agent_name": "claude",
+  "run_label": "issue11-1779090113",
+  "slice_id": "s01",
+  "timestamp": "2026-05-18T07:41:53Z",
+  "model": "claude-opus-4-7",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": null,
+    "output": null,
+    "total": null
+  },
+  "artifact_paths": [
+    ""
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "issue-11 refresh",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}
