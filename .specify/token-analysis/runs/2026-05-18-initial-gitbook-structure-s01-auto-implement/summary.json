@@ -1,0 +1,87 @@
+{
+  "run_label": "2026-05-18-initial-gitbook-structure-s01-auto-implement",
+  "timestamp": "2026-05-18T06:35:26Z",
+  "step_count": 10,
+  "tokens": {
+    "total": 0,
+    "estimated_input": 10950,
+    "estimated_output": 14140,
+    "estimated_total": 25090
+  },
+  "most_expensive_phase": "implement",
+  "missing_token_data": [
+    "analyze",
+    "implement",
+    "intake",
+    "integration",
+    "plan",
+    "review",
+    "scheduling",
+    "slicing",
+    "specify",
+    "tasks"
+  ],
+  "budget_status": "No token budget file found; no budget enforcement applied.",
+  "steps": [
+    {
+      "phase": "analyze",
+      "capture_method": "estimated",
+      "estimated_total": 1200,
+      "total": 0
+    },
+    {
+      "phase": "implement",
+      "capture_method": "estimated",
+      "estimated_total": 9000,
+      "total": 0
+    },
+    {
+      "phase": "intake",
+      "capture_method": "estimated",
+      "estimated_total": 1150,
+      "total": 0
+    },
+    {
+      "phase": "integration",
+      "capture_method": "estimated",
+      "estimated_total": 650,
+      "total": 0
+    },
+    {
+      "phase": "plan",
+      "capture_method": "estimated",
+      "estimated_total": 3400,
+      "total": 0
+    },
+    {
+      "phase": "review",
+      "capture_method": "estimated",
+      "estimated_total": 1800,
+      "total": 0
+    },
+    {
+      "phase": "scheduling",
+      "capture_method": "estimated",
+      "estimated_total": 810,
+      "total": 0
+    },
+    {
+      "phase": "slicing",
+      "capture_method": "estimated",
+      "estimated_total": 880,
+      "total": 0
+    },
+    {
+      "phase": "specify",
+      "capture_method": "estimated",
+      "estimated_total": 3700,
+      "total": 0
+    },
+    {
+      "phase": "tasks",
+      "capture_method": "estimated",
+      "estimated_total": 2500,
+      "total": 0
+    }
+  ]
+}
