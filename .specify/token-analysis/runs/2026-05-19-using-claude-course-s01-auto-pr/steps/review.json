@@ -1,0 +1,30 @@
+{
+  "phase": "review",
+  "command": "speckit-review",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-using-claude-course-s01-auto-pr",
+  "slice_id": "s01",
+  "timestamp": "2026-05-18T23:30:07Z",
+  "model": "unknown",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 6200,
+    "output": 1800,
+    "total": 8000
+  },
+  "artifact_paths": [
+    "specs/003-using-claude-course/checklists/requirements.md"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Ran structural validation for file counts, chapter counts, prompt pattern counts, glossary rows, template headings, and SUMMARY links.",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

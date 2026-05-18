@@ -1,0 +1,30 @@
+{
+  "phase": "intake",
+  "command": "speckit-gh-issue-runner",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-using-claude-course-s01-auto-pr",
+  "slice_id": "s01",
+  "timestamp": "2026-05-18T23:29:55Z",
+  "model": "unknown",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 9200,
+    "output": 1800,
+    "total": 11000
+  },
+  "artifact_paths": [
+    "specs/003-using-claude-course/spec.md"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Issue #14 intake, body inspection, mode auto-pr confirmed, existing artifacts audited.",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

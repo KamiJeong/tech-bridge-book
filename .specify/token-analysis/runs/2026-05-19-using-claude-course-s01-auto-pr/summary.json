@@ -1,0 +1,87 @@
+{
+  "run_label": "2026-05-19-using-claude-course-s01-auto-pr",
+  "timestamp": "2026-05-18T23:31:07Z",
+  "step_count": 10,
+  "tokens": {
+    "total": 0,
+    "estimated_input": 56500,
+    "estimated_output": 22500,
+    "estimated_total": 79000
+  },
+  "most_expensive_phase": "implement",
+  "missing_token_data": [
+    "commit",
+    "implement",
+    "intake",
+    "integration",
+    "plan",
+    "pr-creation",
+    "review",
+    "specify",
+    "tasks",
+    "token-reporting"
+  ],
+  "budget_status": "No token budget file found; no budget enforcement applied.",
+  "steps": [
+    {
+      "phase": "commit",
+      "capture_method": "estimated",
+      "estimated_total": 1000,
+      "total": 0
+    },
+    {
+      "phase": "implement",
+      "capture_method": "estimated",
+      "estimated_total": 27700,
+      "total": 0
+    },
+    {
+      "phase": "intake",
+      "capture_method": "estimated",
+      "estimated_total": 11000,
+      "total": 0
+    },
+    {
+      "phase": "integration",
+      "capture_method": "estimated",
+      "estimated_total": 3300,
+      "total": 0
+    },
+    {
+      "phase": "plan",
+      "capture_method": "estimated",
+      "estimated_total": 8600,
+      "total": 0
+    },
+    {
+      "phase": "pr-creation",
+      "capture_method": "estimated",
+      "estimated_total": 1400,
+      "total": 0
+    },
+    {
+      "phase": "review",
+      "capture_method": "estimated",
+      "estimated_total": 8000,
+      "total": 0
+    },
+    {
+      "phase": "specify",
+      "capture_method": "estimated",
+      "estimated_total": 11400,
+      "total": 0
+    },
+    {
+      "phase": "tasks",
+      "capture_method": "estimated",
+      "estimated_total": 4800,
+      "total": 0
+    },
+    {
+      "phase": "token-reporting",
+      "capture_method": "estimated",
+      "estimated_total": 1800,
+      "total": 0
+    }
+  ]
+}
