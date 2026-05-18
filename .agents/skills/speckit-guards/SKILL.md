@@ -23,6 +23,8 @@ Scripts live in `.agents/skills/speckit-guards/scripts/`.
 - `guard-token-analyzer-available.sh`: detects token-analyzer by extension
   directory, scripts, or command references and recommends installation when
   missing.
+- `validate-agent-definitions.sh`: rejects missing, malformed, incomplete, or
+  mismatched `.codex/agents/*.toml` role definitions.
 - `record-token-step.sh`: writes per-phase token step JSON.
 - `generate-token-report.sh`: writes per-run summary, report, and quality notes.
 

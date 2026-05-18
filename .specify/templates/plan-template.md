@@ -18,78 +18,60 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Canonical Source Language**: [Korean unless explicitly overridden]
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Target Output Languages**: [Korean, English, Japanese or NEEDS CLARIFICATION]
 
-**Version Pinning Strategy**: [lockfile, exact versions, supported ranges, or NEEDS CLARIFICATION]
+**Publishing Format**: [GitBook-friendly Markdown]
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Target Learner**: [non-developer learner profile and assumed prior knowledge]
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Difficulty Standard**: [13+ beginner-friendly adult learner standard]
 
-**Type Safety**: [type checker, strict mode, schema/runtime validation, or NEEDS CLARIFICATION]
+**Curriculum Position**: [digital literacy / AI fundamentals / prompting / data and documents / automation / mini-project / real-world pattern]
 
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Practical Work Scenario**: [documents, spreadsheets, reports, planning, customer communication, marketing, operations, research, automation, or other]
 
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+**Lesson Files**: [planned ko/en/ja Markdown paths]
 
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**Terminology/Glossary Impact**: [new or changed terms and where they are recorded]
 
-**Performance Budget**: [measurable budget and command/tool used to verify it, or NEEDS CLARIFICATION]
+**AI Safety Scope**: [AI limits, hallucination, privacy, copyright, data sensitivity notes, or N/A with rationale]
 
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
+**Markdown/GitBook Checks**: [heading, callout, table, link, page length, file naming checks]
 
-**Security/Privacy Constraints**: [data classes, trust boundaries, secrets, retention, external services, or NEEDS CLARIFICATION]
+**Translation Consistency Checks**: [meaning, structure, terminology, examples, exercises, next steps]
 
-**Accessibility Standard**: [WCAG 2.2 AA, platform standard, N/A with rationale, or NEEDS CLARIFICATION]
+**Quality Commands**: [Markdown lint, link checks, glossary checks, repository scans, or manual review steps]
 
-**Design System/Storybook Impact**: [affected components/tokens/stories or N/A with rationale]
+**Extension Gates**: [docguard/verify/verify-tasks/token-analyzer/git hooks that apply]
 
-**Local-First Strategy**: [local services, fixtures, mocks, seeded data, metered API controls, or NEEDS CLARIFICATION]
-
-**Quality Commands**: [format, lint, type-check, tests, Storybook, accessibility, performance, security scans]
-
-**Extension Gates**: [version-guard/docguard/verify/verify-tasks/token-analyzer hooks that apply]
-
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Scale/Scope**: [number of lessons, language files, glossary entries, diagrams/tables, or NEEDS CLARIFICATION]
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- **Spec Before Code**: spec.md exists and contains prioritized user stories,
-  acceptance scenarios, success criteria, assumptions, and open questions.
-- **Single Source of Truth**: plan scope matches spec.md and no downstream
-  artifact contradicts the spec or constitution.
-- **Explicit Overrides Only**: all deviations are recorded in Complexity
-  Tracking with reason, owner, impact, and simpler alternative considered.
-- **Version-Pinned Stack**: language, framework, tooling, and dependency
-  versions are pinned or marked NEEDS CLARIFICATION before implementation.
-- **Type Safety**: public contracts, module boundaries, data models, and
-  untrusted inputs have typed and validated strategies.
-- **Code Quality**: formatting, linting, static analysis, and local conventions
-  are identified.
-- **Testing Standards**: every changed behavior and user story has an
-  independently executable verification path.
-- **UX Consistency**: affected user flows, states, responsive behavior, and
-  content expectations are captured.
-- **Design System/Storybook Governance**: reusable UI changes include component
-  catalog and visual-state coverage.
-- **Accessibility**: applicable WCAG/platform criteria and verification steps
-  are defined.
-- **Performance Budgets**: measurable budgets and verification tools are
-  specified for performance-sensitive work.
-- **Security/Privacy**: data classes, trust boundaries, permissions, retention,
-  secrets, and external services are reviewed.
-- **Module Boundaries**: affected modules, interfaces, ownership, and dependency
-  direction are explicit.
-- **Local-First/Cost-Aware**: local validation path and metered-service controls
-  are documented.
-- **AI Agent Governance**: agent assumptions, destructive action boundaries, and
-  verification evidence expectations are explicit.
-- **Definition of Done**: required quality gates and completion evidence are
-  listed before implementation.
+- **Non-Developer-First Education**: target learner, assumed prior knowledge,
+  jargon handling, analogies/examples, and glossary needs are explicit.
+- **13+ Difficulty Standard**: the plan avoids childish simplification and
+  expert-only explanation; complex topics are split when needed.
+- **Theory Plus Action**: every lesson includes core explanation plus at least
+  one exercise, thinking question, or mini-task.
+- **Practical Work Connection**: each lesson maps to a real work scenario.
+- **Multilingual Consistency**: Korean canonical source and English/Japanese
+  localization paths, terminology, and review steps are defined.
+- **Consistent Lesson Structure**: required lesson sections are present or any
+  deviation is recorded as an explicit override.
+- **AI Literacy and Safety**: AI-related lessons include limits,
+  hallucination, privacy, copyright, data sensitivity, and human judgment.
+- **GitBook Readability**: Markdown structure, page length, callouts, tables,
+  links, and file naming are covered.
+- **Progressive Learning Path**: curriculum position, prerequisites, and next
+  step are identified.
+- **Lesson Definition of Done**: completion evidence includes all language
+  versions, terminology, exercise, thinking question, practical scenario,
+  Markdown review, and next step.
 
 ## Project Structure
 
@@ -105,48 +87,23 @@ specs/[###-feature]/
 └── tasks.md             # Phase 2 output (/speckit-tasks command - NOT created by /speckit-plan)
 ```
 
-### Source Code (repository root)
+### Content Files (repository root)
 <!--
   ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
   for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
+  real content paths.
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
-tests/
-├── contract/
-├── integration/
-└── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+[content-root]/
+├── ko/
+│   └── [lesson].md
+├── en/
+│   └── [lesson].md
+├── ja/
+│   └── [lesson].md
+└── glossary/
+    └── [terms].md
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real
@@ -158,5 +115,5 @@ directories captured above]
 
 | Violation | Why Needed | Owner | Expiration/Follow-up | Simpler Alternative Rejected Because |
 |-----------|------------|-------|----------------------|-------------------------------------|
-| [e.g., unpinned dependency] | [current need] | [name/role] | [date/task] | [why pinning is not possible yet] |
-| [e.g., skipped accessibility test] | [specific problem] | [name/role] | [date/task] | [why normal verification cannot run] |
+| [e.g., only Korean draft in first pass] | [current need] | [name/role] | [date/task] | [why full ko/en/ja completion is not possible yet] |
+| [e.g., lesson exceeds target page length] | [specific problem] | [name/role] | [date/task] | [why splitting cannot happen yet] |

@@ -1,426 +1,267 @@
 <!--
 Sync Impact Report
-Version change: template -> 1.0.0
+Version change: 1.0.0 -> 2.0.0
 Modified principles:
-- Placeholder principles -> I. Spec Before Code
-- Placeholder principles -> II. Single Source of Truth
-- Placeholder principles -> III. Explicit Overrides Only
-- Placeholder principles -> IV. Version-Pinned Stack
-- Placeholder principles -> V. Type Safety
-- Placeholder principles -> VI. Code Quality
-- Placeholder principles -> VII. Testing Standards
-- Placeholder principles -> VIII. UX Consistency
-- Placeholder principles -> IX. Design System and Storybook Governance
-- Placeholder principles -> X. Accessibility
-- Placeholder principles -> XI. Performance Budgets
-- Placeholder principles -> XII. Security and Privacy by Default
-- Placeholder principles -> XIII. Clear Module Boundaries
-- Placeholder principles -> XIV. Local-First and Cost-Aware Development
-- Placeholder principles -> XV. AI Agent Governance
-- Placeholder principles -> XVI. Definition of Done
+- I. Spec Before Code -> I. Non-Developer-First Education
+- II. Single Source of Truth -> II. 13+ Difficulty Standard
+- III. Explicit Overrides Only -> III. Theory Plus Action
+- IV. Version-Pinned Stack -> IV. Practical Work Connection
+- V. Type Safety -> V. Multilingual Consistency
+- VI. Code Quality -> VI. Consistent Lesson Structure
+- VII. Testing Standards -> VII. AI Literacy and Safety
+- VIII. UX Consistency -> VIII. GitBook Readability
+- IX. Design System and Storybook Governance -> IX. Progressive Learning Path
+- X. Accessibility -> X. Lesson Definition of Done
+- XI. Performance Budgets -> removed
+- XII. Security and Privacy by Default -> incorporated into VII. AI Literacy and Safety
+- XIII. Clear Module Boundaries -> incorporated into VIII. GitBook Readability
+- XIV. Local-First and Cost-Aware Development -> removed
+- XV. AI Agent Governance -> incorporated into Governance
+- XVI. Definition of Done -> X. Lesson Definition of Done
 Added sections:
+- Curriculum Scope
+- Lesson Authoring Workflow and Quality Gates
+Removed sections:
 - Operational Constraints
 - Spec-Driven Workflow and Quality Gates
-Removed sections:
-- None
 Templates requiring updates:
 - ✅ updated .specify/templates/plan-template.md
 - ✅ updated .specify/templates/spec-template.md
 - ✅ updated .specify/templates/tasks-template.md
 - ✅ checked .specify/templates/commands/*.md (directory absent)
-- ✅ updated AGENTS.md
+- ✅ updated README.md
+- ✅ checked AGENTS.md
 Follow-up TODOs:
 - None
 -->
 
-# AI-Assisted Spec-Driven Development Constitution
+# Tech Bridge Book Constitution
 
 ## Core Principles
 
-### I. Spec Before Code
-Every feature, fix, refactor, and extension MUST begin with an approved
-specification or an explicitly documented override. Code generation,
-implementation planning, task creation, and extension quality gates MUST trace
-back to a spec artifact before source files are changed.
-
-**Rationale**: The specification is the contract between product intent,
-engineering design, AI agents, and validation. Starting with code creates
-unreviewable assumptions and weakens later verification.
-
-**Enforcement guidance**: `/speckit.specify` MUST capture user value,
-requirements, success criteria, risks, and open questions. `/speckit.clarify`
-MUST resolve material ambiguity before planning. `/speckit.plan`,
-`/speckit.tasks`, and `/speckit.implement` MUST refuse work that lacks a spec,
-unless the override is recorded in the plan and reviewed at completion.
-
-**Violation examples**:
-- Implementing a UI flow directly from chat without creating or updating
-  `spec.md`.
-- Adding a dependency or data model during implementation that was not covered
-  in `plan.md`.
-- Marking a requirement complete when no acceptance scenario verifies it.
-
-### II. Single Source of Truth
-The active feature directory under `specs/` MUST be the source of truth for
-scope, requirements, architecture, tasks, acceptance criteria, and verification
-evidence. Generated or downstream artifacts MUST not contradict `spec.md`,
-`plan.md`, `tasks.md`, contracts, or this constitution.
-
-**Rationale**: A single source of truth prevents drift between instructions,
-agent memory, generated tasks, and implementation reality.
-
-**Enforcement guidance**: When conflict exists, this constitution has highest
-authority, then the approved spec, then the plan, then tasks. Any change in code
-scope MUST update the owning artifact in the same change set. `/speckit.analyze`
-and extension gates SHOULD report contradictions as blockers.
-
-**Violation examples**:
-- A task says tests are optional while the spec marks the story as regulated or
-  security-sensitive.
-- README instructions describe a different architecture from `plan.md`.
-- A contract file is changed without updating the related requirement.
-
-### III. Explicit Overrides Only
-Teams and AI agents MUST not silently bypass constitutional rules, approved
-requirements, version constraints, task dependencies, review gates, or quality
-checks. Overrides MUST be explicit, scoped, time-bounded where applicable, and
-recorded with the reason, owner, impact, and follow-up validation.
-
-**Rationale**: Hidden exceptions become permanent policy and make automated
-quality gates unreliable.
-
-**Enforcement guidance**: Overrides MUST be documented in `plan.md` under
-Complexity Tracking or an equivalent feature-level decision log. `/speckit.plan`
-MUST identify the simpler alternative rejected. `/speckit.implement` MUST
-preserve the override record and reference it in completion notes.
-
-**Violation examples**:
-- Skipping accessibility tests because the UI is "temporary" without recording
-  an approved exception.
-- Using an unpinned package because installation was faster.
-- Ignoring a failing quality gate without a documented owner and remediation.
-
-### IV. Version-Pinned Stack
-Language runtimes, frameworks, build tools, UI libraries, testing tools, and
-externally generated APIs MUST be version-pinned before implementation. Plans
-MUST use current verified versions or record a documented constraint when a
-legacy version is required.
-
-**Rationale**: AI-generated code is vulnerable to stale APIs and incompatible
-examples. Pinning versions makes generated implementation, tests, and quality
-gates reproducible.
-
-**Enforcement guidance**: `/speckit.plan` MUST list exact versions or version
-ranges with lockfile strategy. Version Guard SHOULD run before planning, before
-implementation, and after implementation when configured. Code MUST not use APIs
-that are incompatible with the pinned versions.
-
-**Violation examples**:
-- Writing React, Next.js, OpenAI API, or Storybook code without identifying the
-  project version.
-- Depending on latest package behavior without a lockfile or constraint.
-- Copying API patterns from outdated documentation.
-
-### V. Type Safety
-Production code MUST use the strongest practical type system available in the
-selected stack. Public module boundaries, API contracts, data models, component
-props, environment configuration, and persisted payloads MUST be typed and
-validated at runtime where untrusted data enters the system.
-
-**Rationale**: Type safety reduces ambiguity for humans and AI agents, catches
-integration errors earlier, and protects module contracts as the codebase
-evolves.
-
-**Enforcement guidance**: `/speckit.plan` MUST identify type-check commands.
-`/speckit.tasks` MUST include tasks for contract types, schema validation, and
-type-check execution when applicable. `any`, unchecked casts, disabled strict
-mode, or equivalent escapes MUST have narrow justification.
-
-**Violation examples**:
-- Accepting API input without schema validation.
-- Exporting an untyped shared helper across module boundaries.
-- Disabling type errors instead of correcting the data model.
-
-### VI. Code Quality
-Code MUST be simple, cohesive, readable, formatted, linted, and aligned with
-existing repository patterns. Implementations MUST prefer established local
-abstractions over new patterns unless the plan documents why the existing
-approach does not fit.
-
-**Rationale**: Spec-driven work only remains maintainable when implementation
-quality is predictable and easy to review.
-
-**Enforcement guidance**: `/speckit.plan` MUST name formatting, linting, and
-static analysis commands. `/speckit.tasks` MUST include quality tasks for each
-story or cross-cutting phase. `/speckit.implement` MUST avoid unrelated
-refactors and MUST not hide complexity behind generic helper layers.
-
-**Violation examples**:
-- Introducing a second state-management style for one feature.
-- Adding broad utility functions with no direct feature need.
-- Leaving lint, formatting, or dead-code failures unresolved.
-
-### VII. Testing Standards
-Every changed behavior MUST have tests at the lowest effective level, and every
-user story MUST have an independently executable verification path. Tests MUST
-be written before or alongside implementation and MUST fail for the intended
-reason before the implementation is accepted when test-first sequencing is
-practical.
-
-**Rationale**: Tests convert the spec into executable evidence and protect
-against phantom completion by AI agents.
-
-**Enforcement guidance**: `/speckit.specify` MUST define independent tests for
-each user story. `/speckit.tasks` MUST include unit, contract, integration,
-end-to-end, accessibility, or visual-regression tasks according to risk.
-Skipping tests MAY occur only through an explicit override with manual
-verification evidence and follow-up risk accepted by an owner.
-
-**Violation examples**:
-- Marking a story complete based only on manual inspection.
-- Updating shared validation logic without unit or contract coverage.
-- Writing tests that assert implementation details instead of user-visible
-  outcomes or stable contracts.
-
-### VIII. UX Consistency
-User-facing work MUST follow the approved product flows, information
-architecture, interaction patterns, content tone, responsive behavior, and error
-states defined in the spec and design system. New UI patterns MUST be justified
-in the plan and reviewed against existing product behavior.
-
-**Rationale**: Consistent UX lowers cognitive load and prevents feature work
-from degrading product coherence over time.
-
-**Enforcement guidance**: `/speckit.specify` MUST capture key journeys, states,
-and success criteria. `/speckit.plan` MUST identify affected surfaces and UX
-constraints. `/speckit.tasks` MUST include responsive, empty, loading, error,
-and edge-state implementation and verification tasks when UI is changed.
-
-**Violation examples**:
-- Adding a modal flow where the product uses inline editing for the same task.
-- Shipping a desktop-only layout for a feature that must work on mobile.
-- Omitting empty, loading, disabled, and error states.
-
-### IX. Design System and Storybook Governance
-Reusable UI MUST be built from the approved design system primitives. New
-components, variants, tokens, or interaction patterns MUST be represented in
-Storybook or the repository's equivalent component catalog before they are
-treated as reusable product surface.
-
-**Rationale**: Design system governance keeps UI change reviewable, reusable,
-and consistent across features.
-
-**Enforcement guidance**: `/speckit.plan` MUST identify design system impact.
-`/speckit.tasks` MUST include Storybook stories, visual states, token updates,
-and visual-regression coverage when a reusable UI component changes. Local,
-one-off styling MAY be used only for isolated product-specific layout that does
-not introduce reusable semantics.
-
-**Violation examples**:
-- Creating a second button component instead of extending the design system
-  button.
-- Adding a new color token without documenting use and contrast behavior.
-- Reusing a component across screens without a Storybook story for its states.
-
-### X. Accessibility
-User-facing interfaces MUST meet WCAG 2.2 AA unless a stricter product,
-regulatory, or platform standard applies. Keyboard navigation, focus order,
-semantic structure, name/role/value, color contrast, reduced motion, and screen
-reader behavior MUST be considered in specs, plans, tasks, and verification.
-
-**Rationale**: Accessibility is a core quality requirement, not a polish task,
-and it is cheaper to design and test before implementation hardens.
-
-**Enforcement guidance**: `/speckit.specify` MUST include accessibility
-acceptance criteria for user-facing changes. `/speckit.tasks` MUST include
-automated and manual accessibility verification where applicable.
-`/speckit.implement` MUST not ship inaccessible custom controls when native or
-design-system primitives can satisfy the requirement.
-
-**Violation examples**:
-- Implementing a clickable `div` without keyboard support.
-- Using color alone to communicate validation state.
-- Adding animation without respecting reduced-motion preferences.
-
-### XI. Performance Budgets
-Features MUST define and respect performance budgets appropriate to their
-surface, such as load time, interaction latency, bundle impact, memory, storage,
-API latency, throughput, rendering frame rate, or token cost. Budgets MUST be
-measurable and verified before completion.
-
-**Rationale**: Performance regressions are difficult to identify after scope
-expands and especially costly when AI agents add unnecessary code or network
-calls.
-
-**Enforcement guidance**: `/speckit.specify` MUST capture user-visible
-performance outcomes when relevant. `/speckit.plan` MUST translate them into
-technical budgets and measurement commands. `/speckit.tasks` MUST include
-profiling or regression checks for performance-sensitive work.
-
-**Violation examples**:
-- Adding a large frontend dependency for a minor formatting task.
-- Making serial API calls where the spec requires fast first interaction.
-- Shipping without measuring a declared p95 latency or bundle budget.
-
-### XII. Security and Privacy by Default
-Features MUST minimize data collection, protect secrets, validate inputs,
-authorize access, preserve auditability for sensitive actions, and avoid sending
-private data to external services unless the spec explicitly approves it.
-Security and privacy risks MUST be considered before implementation.
-
-**Rationale**: Security and privacy requirements are architectural constraints;
-late fixes are expensive and easy for AI agents to miss.
-
-**Enforcement guidance**: `/speckit.specify` MUST identify data categories,
-trust boundaries, permissions, retention, and privacy expectations.
-`/speckit.plan` MUST include threat-model notes for sensitive work.
-`/speckit.tasks` MUST include validation, authorization, secret handling, and
-security test tasks where applicable.
-
-**Violation examples**:
-- Logging tokens, personal data, or request bodies containing secrets.
-- Adding an external analytics or AI service without data-use approval.
-- Trusting client-provided authorization fields.
-
-### XIII. Clear Module Boundaries
-Modules MUST have explicit ownership, stable public interfaces, and limited
-dependencies. Cross-module calls MUST use approved contracts rather than
-reaching into internal implementation details. Shared code MUST be introduced
-only when at least two concrete consumers justify it or the plan documents a
-near-term architectural need.
-
-**Rationale**: Clear boundaries make features independently testable and reduce
-the blast radius of AI-generated changes.
-
-**Enforcement guidance**: `/speckit.plan` MUST define affected modules,
-interfaces, data flow, and ownership. `/speckit.tasks` MUST sequence boundary
-changes before dependent implementation. `/speckit.analyze` SHOULD flag circular
-dependencies, hidden coupling, and cross-story file conflicts.
-
-**Violation examples**:
-- Importing a component's private helper from another feature area.
-- Creating a shared package for one use case.
-- Changing a public contract without updating downstream consumers and tests.
-
-### XIV. Local-First and Cost-Aware Development
-Development, validation, and demonstrations SHOULD run locally by default using
-deterministic fixtures, mocks, or local services. Paid, metered, remote, or
-production-like services MAY be used only when the plan explains why local
-substitutes are insufficient and how cost, data exposure, and failure modes are
-controlled.
-
-**Rationale**: Local-first workflows reduce cost, speed iteration, protect
-privacy, and make AI-assisted implementation reproducible.
-
-**Enforcement guidance**: `/speckit.plan` MUST identify local setup commands,
-required services, environment variables, seeded data, and any metered external
-calls. `/speckit.tasks` MUST include local verification steps and cost controls
-for AI, analytics, cloud, or third-party APIs.
-
-**Violation examples**:
-- Requiring production credentials for routine tests.
-- Running token-heavy AI calls in tests without a mock mode or budget.
-- Depending on a remote service when a local fixture would validate the same
-  behavior.
-
-### XV. AI Agent Governance
-AI agents MUST follow the same specs, plans, tasks, quality gates, security
-rules, and ownership boundaries as human contributors. Agents MUST preserve user
-changes, disclose assumptions, avoid destructive actions without approval, and
-record meaningful verification results.
-
-**Rationale**: AI assistance increases throughput only when its changes remain
-auditable, bounded, and reviewable.
-
-**Enforcement guidance**: `/speckit.implement` MUST work task-by-task, update
-task state truthfully, and provide evidence for completed work. Agents MUST not
-mark tasks complete when code, tests, or docs do not support the claim.
-Extension gates SHOULD detect phantom completions, documentation drift, version
-violations, and unverified changes.
-
-**Violation examples**:
-- Reverting unrelated user edits to make a patch easier.
-- Inventing test results instead of running or clearly reporting them as not
-  run.
-- Completing tasks out of dependency order without recording an override.
-
-### XVI. Definition of Done
-A change is done only when the spec, plan, tasks, implementation, tests,
-documentation, accessibility checks, performance checks, security/privacy review,
-and extension quality gates required for the scope are complete or explicitly
-overridden. Completion MUST include evidence that each accepted user story works
-independently.
-
-**Rationale**: Definition of Done prevents partial implementation from being
-mistaken for delivered value.
-
-**Enforcement guidance**: `/speckit.tasks` MUST include final verification and
-documentation tasks. `/speckit.implement` MUST run the relevant checks, update
-task status only for implemented work, and summarize residual risk.
-`/speckit.analyze` and extension gates SHOULD block release when artifacts and
-implementation disagree.
-
-**Violation examples**:
-- Shipping code while `tasks.md` has incomplete required verification tasks.
-- Closing a story that lacks acceptance evidence or updated docs.
-- Treating a passing unit test as sufficient for a changed end-to-end workflow.
-
-## Operational Constraints
-
-Specs, plans, tasks, and implementation artifacts MUST use precise MUST, SHOULD,
-and MAY language. Ambiguity MUST be resolved through `/speckit.clarify` before
-planning when it affects scope, UX, data, security, performance, versioning,
-cost, or test strategy.
-
-All technical plans MUST document the version-pinned stack, local development
-commands, module boundaries, quality commands, test commands, accessibility
-strategy, performance budgets, security/privacy assumptions, and extension gates
-that apply to the feature. Missing information MUST be marked `NEEDS
-CLARIFICATION` until resolved or explicitly overridden.
-
-Design system and Storybook governance apply to reusable UI. Feature-specific
-screens MAY use local composition, but reusable controls, tokens, patterns, and
-states MUST be cataloged and tested through the approved component workflow.
-
-## Spec-Driven Workflow and Quality Gates
-
-`/speckit.specify` MUST produce user stories, acceptance scenarios, measurable
-success criteria, data and privacy assumptions, accessibility criteria, and
-performance expectations for applicable surfaces.
-
-`/speckit.clarify` MUST resolve material uncertainty before planning and MUST
-write the answer back to the spec or related design artifact.
-
-`/speckit.plan` MUST translate the spec into a version-pinned technical plan,
-module structure, contracts, local-first development approach, quality commands,
-and a Constitution Check. Any violation MUST be justified in Complexity Tracking
-before Phase 0 research or Phase 1 design proceeds.
-
-`/speckit.tasks` MUST generate dependency-ordered tasks that are independently
-testable by user story, include required test and quality-gate work, and capture
-cross-cutting UX, Storybook, accessibility, performance, security, privacy, and
-documentation tasks.
-
-`/speckit.implement` MUST execute tasks without inventing scope, preserve
-artifact traceability, run applicable checks, and report incomplete verification
-honestly.
-
-`/speckit.analyze` and extension-based quality gates SHOULD verify consistency
-across `spec.md`, `plan.md`, `tasks.md`, implementation, docs, version
-constraints, and completed task claims. Mandatory extension hooks MUST be
-treated as release blockers unless an explicit override is recorded.
+### I. Non-Developer-First Education
+All Tech Bridge Book content MUST assume the learner is not a software
+developer. Technical terms MAY be introduced only when they are necessary for
+understanding the topic, and each introduced term MUST be explained with a plain
+language definition, a practical analogy or example, and a glossary entry when
+the term is likely to recur.
+
+**Rationale**: The project exists to help non-developers learn AI and practical
+technology. Developer-first language creates avoidable barriers and weakens the
+learning path.
+
+**Enforcement guidance**: New lesson specs MUST define the target learner,
+learning goal, practical use case, and expected prior knowledge. Reviews MUST
+flag unexplained jargon, assumed programming knowledge, and examples that depend
+on developer tools unless the lesson explicitly teaches those tools.
+
+### II. 13+ Difficulty Standard
+Content MUST be approachable but meaningful: not childish, not expert-only, and
+respectful of adult learners. Lessons MUST be understandable by a motivated
+beginner with normal computer literacy, while still naming real concepts and
+showing realistic workplace use.
+
+**Rationale**: The curriculum should build confidence without flattening the
+subject into slogans or making learners feel talked down to.
+
+**Enforcement guidance**: Authors MUST prefer short paragraphs, concrete
+examples, and step-by-step explanations. When a concept is too complex for this
+standard, it MUST be split into multiple lessons instead of compressed into one
+dense page.
+
+### III. Theory Plus Action
+Every lesson MUST include both a clear theoretical explanation and at least one
+hands-on exercise, thinking question, or practical mini-task that the learner can
+try immediately.
+
+**Rationale**: Learners retain technology concepts better when explanation is
+paired with action and reflection.
+
+**Enforcement guidance**: A lesson cannot be marked complete if it only explains
+a concept. Each lesson MUST include one or more learner actions that require no
+special developer setup unless the lesson explicitly prepares that setup.
+
+### IV. Practical Work Connection
+Lessons MUST connect AI and technology concepts to real work scenarios such as
+documents, spreadsheets, reports, planning, customer communication, marketing,
+operations, research, and automation.
+
+**Rationale**: The audience needs transferable work capability, not abstract
+technical trivia.
+
+**Enforcement guidance**: Specs and lesson drafts MUST identify the practical
+work scenario before content is written. Examples SHOULD use familiar office,
+school, small-business, or personal productivity contexts.
+
+### V. Multilingual Consistency
+Korean is the canonical source language unless a spec explicitly states
+otherwise. English and Japanese versions MUST preserve meaning, structure,
+examples, terminology, learning outcomes, exercises, warnings, and next steps.
+Translations SHOULD be localized naturally rather than word-for-word when a
+literal translation would feel awkward.
+
+**Rationale**: Learners in different languages should receive the same course
+value and progression while reading natural language.
+
+**Enforcement guidance**: Any content change MUST check all three language
+versions. Shared terms MUST stay consistent across Korean, English, and
+Japanese, and terminology decisions MUST be recorded in the relevant glossary or
+lesson notes.
+
+### VI. Consistent Lesson Structure
+Each lesson MUST follow this repeatable structure:
+
+- Title
+- Who this lesson is for
+- What you will learn
+- Why this matters in real work
+- Core concept explanation
+- Simple example
+- Hands-on exercise
+- Thinking question
+- Common mistakes
+- Summary
+- Next step
+
+**Rationale**: A consistent structure helps beginners orient themselves and lets
+multilingual versions stay aligned.
+
+**Enforcement guidance**: Additional sections MAY be added when useful, but the
+required sections MUST remain present and in a logical order. If a lesson needs
+more than one major concept, it SHOULD be split.
+
+### VII. AI Literacy and Safety
+AI-related lessons MUST explain realistic limits of AI, hallucination risk,
+privacy concerns, copyright awareness, data sensitivity, and the need for human
+judgment. Content MUST NOT overpromise AI capabilities or present AI output as
+automatically correct.
+
+**Rationale**: Practical AI education is incomplete if learners do not understand
+where AI is unreliable or risky.
+
+**Enforcement guidance**: Prompting, automation, document, data, and research
+lessons MUST include appropriate safety notes. Examples MUST avoid instructing
+learners to paste confidential, personal, proprietary, or regulated data into AI
+tools without clear safeguards.
+
+### VIII. GitBook Readability
+All documents MUST be clean, GitBook-friendly Markdown. Pages MUST use clear
+headings, short paragraphs, readable lists, tables when useful, and callouts for
+warnings or tips. File names and paths MUST be consistent and predictable.
+Overly broad pages MUST be split.
+
+**Rationale**: GitBook is the primary publishing format, so source Markdown must
+remain readable, navigable, and maintainable.
+
+**Enforcement guidance**: Authors MUST avoid oversized pages, deeply nested
+headings, inconsistent title levels, broken links, and formatting that depends
+on custom rendering outside GitBook. Markdown review is part of the definition
+of done.
+
+### IX. Progressive Learning Path
+The curriculum MUST move from beginner concepts to practical usage in this
+order unless a spec records a justified exception:
+
+1. Basic digital and technology literacy
+2. AI fundamentals
+3. Prompting and AI collaboration
+4. Data and document handling
+5. Automation and workflow design
+6. Practical mini-projects
+7. Real-world application patterns
+
+**Rationale**: Beginners need a stable path from confidence-building basics to
+workplace application.
+
+**Enforcement guidance**: New topics MUST identify their position in the
+learning path, prerequisites, and next step. Curriculum structure changes MUST
+preserve beginner accessibility and practical usefulness.
+
+### X. Lesson Definition of Done
+A lesson is complete only when it includes Korean, English, and Japanese
+versions; consistent terminology; at least one exercise; at least one thinking
+question; a practical work scenario; beginner-friendly explanations; reviewed
+Markdown formatting; and a clear next step.
+
+**Rationale**: Partial lessons create translation drift, uneven learner
+outcomes, and incomplete curriculum progression.
+
+**Enforcement guidance**: Completion evidence MUST list the three language
+files, terminology checks, exercise and thinking question coverage, practical
+scenario, Markdown review, and next-step link or instruction.
+
+## Curriculum Scope
+
+Tech Bridge Book is a GitBook-based multilingual AI and technology education
+document collection for non-developers. The primary output languages are Korean,
+English, and Japanese. The primary publishing format is GitBook-friendly
+Markdown.
+
+Curriculum work MUST prioritize practical learning outcomes over exhaustive
+technical coverage. If a topic becomes too broad, the author MUST split it into
+smaller lessons with clear prerequisites and next steps.
+
+When adding a new topic, the spec MUST define:
+
+- target learner
+- learning goal
+- practical work use case
+- exercise or mini-task
+- language files to create or update
+- terminology or glossary impact
+
+When revising existing content, the change MUST check all three language
+versions for structure, meaning, terminology, examples, exercises, and next
+steps.
+
+## Lesson Authoring Workflow and Quality Gates
+
+`/speckit.specify` MUST capture learner audience, learning goal, curriculum
+position, practical work scenario, required language outputs, safety concerns,
+lesson structure, and success criteria.
+
+`/speckit.clarify` MUST resolve ambiguity that affects audience level,
+curriculum sequence, multilingual scope, exercises, safety guidance, or GitBook
+structure before planning.
+
+`/speckit.plan` MUST translate the spec into a content plan with file paths for
+Korean, English, and Japanese versions; terminology handling; Markdown/GitBook
+formatting checks; translation consistency checks; and lesson completion
+evidence.
+
+`/speckit.tasks` MUST generate dependency-ordered tasks for canonical Korean
+drafting, English and Japanese localization, glossary or terminology updates,
+exercise and thinking-question creation, AI safety review when applicable,
+GitBook Markdown review, and final multilingual consistency verification.
+
+`/speckit.implement` MUST make only the content changes covered by the active
+spec and tasks, preserve learner accessibility, update all affected language
+versions, and report any incomplete translation or review work honestly.
+
+`/speckit.analyze` and extension quality gates SHOULD verify consistency across
+the spec, plan, tasks, content files, terminology, lesson structure, safety
+notes, and completion evidence. Mandatory hooks MUST be treated as blockers
+unless an explicit override is recorded.
 
 ## Governance
 
 This constitution supersedes conflicting process instructions, generated
-templates, agent memory, and feature artifacts. Feature artifacts may add stricter
-requirements but MUST NOT weaken these principles without an amendment.
+templates, agent memory, feature artifacts, and lesson drafts. Feature specs may
+add stricter requirements but MUST NOT weaken these principles without an
+amendment.
 
-Amendments MUST include the proposed text, rationale, migration impact,
-affected templates or extension gates, and version bump. Amendments require
-review by the project owner or delegated maintainer before they are ratified.
+Any new document MUST follow this constitution. Any change to curriculum
+structure MUST preserve beginner accessibility and practical usefulness. When
+adding a new topic, the target learner, learning goal, practical use case, and
+exercise MUST be defined before drafting. When revising existing content, all
+three language versions MUST be checked for consistency.
+
+Amendments MUST include proposed text, rationale, migration impact, affected
+templates or workflow gates, and a version bump. Amendments require review by
+the project owner or delegated maintainer before they are ratified.
 
 Versioning follows semantic governance:
+
 - MAJOR for backward-incompatible principle removals, weaker obligations, or
   redefinitions that change compliance expectations.
 - MINOR for new principles, new required sections, or materially expanded
@@ -432,4 +273,4 @@ begins, before tasks are marked complete, and during extension quality gates.
 Unresolved constitutional violations MUST be tracked as explicit overrides or
 block completion.
 
-**Version**: 1.0.0 | **Ratified**: 2026-05-13 | **Last Amended**: 2026-05-13
+**Version**: 2.0.0 | **Ratified**: 2026-05-13 | **Last Amended**: 2026-05-18

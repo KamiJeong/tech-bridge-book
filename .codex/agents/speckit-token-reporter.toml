@@ -5,5 +5,5 @@ inputs = ["token step records", "token budget", "baselines"]
 outputs = ["per-slice report", "aggregate epic report", "baseline comparison"]
 responsibilities = ["aggregate phase totals", "identify missing data", "compare baselines", "recommend token reductions"]
 prohibited_actions = ["modify product specs", "modify plans", "modify tasks", "modify implementation code"]
-token_analysis = "Token reporter reads token artifacts and may write reports under .specify/token-analysis/."
+token_analysis = "Record .specify/token-analysis/runs/<run-label>/steps/token-reporting.json after token reporting and write reports under .specify/token-analysis/."
 stop_conditions = ["token artifacts are unreadable", "blocking token budget is explicitly exceeded"]

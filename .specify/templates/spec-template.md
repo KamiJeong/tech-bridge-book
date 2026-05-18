@@ -16,11 +16,11 @@
   you should still have a viable MVP (Minimum Viable Product) that delivers value.
 
   Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
-  Think of each story as a standalone slice of functionality that can be:
-  - Developed independently
-  - Tested independently
-  - Deployed independently
-  - Demonstrated to users independently
+  Think of each story as a standalone learner-facing slice that can be:
+  - Drafted independently
+  - Reviewed independently
+  - Published independently
+  - Demonstrated to learners independently
 -->
 
 ### User Story 1 - [Brief Title] (Priority: P1)
@@ -75,14 +75,18 @@
   Fill them out with the right edge cases.
 -->
 
-- What happens when [boundary condition]?
-- How does system handle [error scenario]?
+- What happens when [the topic is too broad for one GitBook page]?
+- How does the lesson handle [sensitive data, privacy, or AI uncertainty]?
 
-### UX, Accessibility & Performance Expectations *(mandatory for user-facing changes)*
+### Learner, Curriculum & Publishing Expectations *(mandatory)*
 
-- **UX Consistency**: [Existing flows, components, content patterns, responsive states, or N/A with rationale]
-- **Accessibility**: [WCAG/platform acceptance criteria, keyboard/focus/screen-reader expectations, or N/A with rationale]
-- **Performance**: [User-visible latency, rendering, throughput, bundle, memory, or cost outcomes, or N/A with rationale]
+- **Target Learner**: [non-developer audience, prior knowledge, and why this lesson fits them]
+- **Difficulty Standard**: [how the lesson meets the 13+ approachable adult beginner standard]
+- **Curriculum Position**: [where this topic sits in the progressive learning path]
+- **Practical Work Scenario**: [real work context such as documents, spreadsheets, reports, planning, customer communication, marketing, operations, research, or automation]
+- **Output Languages**: [Korean canonical source plus English and Japanese versions]
+- **GitBook Format**: [expected Markdown paths, headings, callouts, tables, links, and page-splitting expectations]
+- **AI Safety Scope**: [AI limits, hallucination, privacy, copyright, data sensitivity, human judgment, or N/A with rationale]
 
 ## Requirements *(mandatory)*
 
@@ -93,31 +97,32 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
-- **FR-006**: System MUST preserve [security/privacy requirement, e.g., "least-privilege access to user data"]
-- **FR-007**: System MUST expose [testable completion evidence, e.g., "an independently verifiable outcome for each user story"]
+- **FR-001**: Lesson MUST define who it is for and what the learner will learn
+- **FR-002**: Lesson MUST include why the topic matters in real work
+- **FR-003**: Lesson MUST include a beginner-friendly core concept explanation
+- **FR-004**: Lesson MUST include a simple example connected to the work scenario
+- **FR-005**: Lesson MUST include at least one hands-on exercise or practical mini-task
+- **FR-006**: Lesson MUST include at least one thinking question
+- **FR-007**: Lesson MUST include common mistakes, summary, and next step
+- **FR-008**: Lesson MUST include Korean, English, and Japanese versions with aligned meaning, structure, terminology, examples, exercises, and learning outcomes
+- **FR-009**: AI-related lessons MUST include realistic AI limits, hallucination risk, privacy, copyright, data sensitivity, and human judgment guidance
 
 *Example of marking unclear requirements:*
 
-- **FR-008**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-009**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-010**: Lesson MUST use [NEEDS CLARIFICATION: canonical Korean term for key concept not specified]
+- **FR-011**: Lesson MUST fit after [NEEDS CLARIFICATION: prerequisite lesson not specified]
 
-### Security, Privacy & Data *(mandatory)*
+### Terminology, Safety & Data *(mandatory)*
 
-- **Data Classification**: [Public/internal/confidential/personal/sensitive data involved, or N/A]
-- **Trust Boundaries**: [Users, services, external systems, AI providers, or N/A]
-- **Retention & Minimization**: [What is stored, for how long, and why, or N/A]
-- **Secrets & Permissions**: [Required credentials, scopes, roles, or N/A]
-- **External Services**: [Third-party, cloud, analytics, or AI services and approved data use, or N/A]
+- **Terminology**: [new or reused terms in Korean, English, and Japanese]
+- **Glossary Impact**: [glossary entries to create or update, or N/A]
+- **AI/Data Safety**: [privacy, personal data, sensitive workplace data, copyright, or N/A]
+- **Human Judgment**: [where the learner must verify, review, or decide instead of trusting automation]
 
-### Key Entities *(include if feature involves data)*
+### Key Content Artifacts *(include if feature involves structured content)*
 
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
+- **[Artifact 1]**: [Lesson, glossary, exercise, table, diagram, or checklist and what it represents]
+- **[Artifact 2]**: [Relationship to other lessons, language versions, or glossary terms]
 
 ## Success Criteria *(mandatory)*
 
@@ -128,10 +133,10 @@
 
 ### Measurable Outcomes
 
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-001**: [Learner outcome, e.g., "A beginner can explain the concept in their own words"]
+- **SC-002**: [Practical outcome, e.g., "A learner can complete the mini-task using a workplace example"]
+- **SC-003**: [Consistency outcome, e.g., "Korean, English, and Japanese versions preserve the same structure and learning outcome"]
+- **SC-004**: [Publishing outcome, e.g., "Markdown renders cleanly in GitBook with no broken internal links"]
 
 ## Assumptions
 
@@ -141,14 +146,20 @@
   chosen when the feature description did not specify certain details.
 -->
 
-- [Assumption about target users, e.g., "Users have stable internet connectivity"]
-- [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
-- [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
-- [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+- [Assumption about target learners, e.g., "Learners can use a browser, documents, and spreadsheets"]
+- [Assumption about scope boundaries, e.g., "Advanced programming details are out of scope for this lesson"]
+- [Assumption about content environment, e.g., "GitBook Markdown is the publishing source"]
+- [Dependency on existing curriculum asset, e.g., "Requires a previous lesson on basic prompts"]
 
 ## Constitution Alignment *(mandatory)*
 
-- **Spec Before Code**: [Confirm this spec is the source for planning and implementation]
-- **Explicit Overrides**: [List approved overrides or "None"]
-- **Single Source of Truth**: [Artifacts that must be updated if scope changes]
-- **Local-First/Cost-Aware**: [Expected local fixtures, mocks, or metered service controls]
+- **Non-Developer-First Education**: [learner assumptions, jargon controls, analogy/example approach]
+- **13+ Difficulty Standard**: [how content avoids both childish and expert-only tone]
+- **Theory Plus Action**: [planned explanation and learner action]
+- **Practical Work Connection**: [specific work scenario]
+- **Multilingual Consistency**: [ko/en/ja scope and consistency review]
+- **Consistent Lesson Structure**: [required sections covered]
+- **AI Literacy and Safety**: [AI safety coverage or N/A with rationale]
+- **GitBook Readability**: [Markdown/GitBook expectations]
+- **Progressive Learning Path**: [prerequisite and next-step placement]
+- **Lesson Definition of Done**: [completion evidence]

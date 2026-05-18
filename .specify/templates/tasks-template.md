@@ -1,6 +1,6 @@
 ---
 
-description: "Task list template for feature implementation"
+description: "Task list template for lesson and curriculum work"
 ---
 
 # Tasks: [FEATURE NAME]
@@ -9,11 +9,13 @@ description: "Task list template for feature implementation"
 
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: Every changed behavior MUST have an independently executable
-verification path. Include test tasks at the lowest effective level unless the
-plan records an explicit override with owner, risk, and manual evidence.
+**Verification**: Every lesson change MUST have an independently executable
+review path. Include tasks for multilingual consistency, lesson structure,
+exercise coverage, AI safety when applicable, and GitBook Markdown review unless
+the plan records an explicit override with owner, risk, and manual evidence.
 
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
+**Organization**: Tasks are grouped by user story to enable independent drafting,
+localization, and verification of each learner-facing increment.
 
 ## Format: `[ID] [P?] [Story] Description`
 
@@ -23,10 +25,11 @@ plan records an explicit override with owner, risk, and manual evidence.
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Korean canonical source**: `[content-root]/ko/[lesson].md`
+- **English localization**: `[content-root]/en/[lesson].md`
+- **Japanese localization**: `[content-root]/ja/[lesson].md`
+- **Terminology/glossary**: `[content-root]/glossary/[terms].md`
+- Paths shown below are examples - adjust based on plan.md structure
 
 <!--
   ============================================================================
@@ -35,76 +38,77 @@ plan records an explicit override with owner, risk, and manual evidence.
   The /speckit-tasks command MUST replace these with actual tasks based on:
   - User stories from spec.md (with their priorities P1, P2, P3...)
   - Feature requirements from plan.md
-  - Entities from data-model.md
-  - Endpoints from contracts/
+  - Lesson requirements from plan.md
+  - Terminology/glossary impact from data-model.md or research.md
+  - Markdown/GitBook and multilingual consistency checks from contracts/
 
   Tasks MUST be organized by user story so each story can be:
-  - Implemented independently
-  - Tested independently
-  - Delivered as an MVP increment
+  - Drafted independently
+  - Reviewed independently
+  - Delivered as a useful learner-facing increment
 
   DO NOT keep these sample tasks in the generated tasks.md file.
   ============================================================================
 -->
 
-## Phase 1: Setup (Shared Infrastructure)
+## Phase 1: Setup (Shared Content Structure)
 
-**Purpose**: Project initialization and basic structure
+**Purpose**: Content paths and shared review structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with version-pinned [framework] dependencies and lockfile
-- [ ] T003 [P] Configure linting and formatting tools
-- [ ] T004 [P] Configure type-checking and runtime schema validation tooling
-- [ ] T005 [P] Configure local-first fixtures, mocks, or seeded services
+- [ ] T001 Create or confirm lesson directories for Korean, English, and Japanese Markdown files
+- [ ] T002 Identify canonical Korean source file and matching English/Japanese file paths
+- [ ] T003 [P] Create or update glossary/terminology tracking file
+- [ ] T004 [P] Confirm GitBook Markdown conventions for headings, callouts, tables, links, and file naming
+- [ ] T005 [P] Record curriculum position, prerequisite lesson, and next-step target
 
 ---
 
-## Phase 2: Foundational (Blocking Prerequisites)
+## Phase 2: Foundational (Blocking Content Decisions)
 
-**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
+**Purpose**: Core content decisions that MUST be complete before ANY user story can be drafted
 
-**⚠️ CRITICAL**: No user story work can begin until this phase is complete
+**CRITICAL**: No user story work can begin until this phase is complete
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T006 Setup database schema and migrations framework
-- [ ] T007 [P] Implement authentication/authorization framework
-- [ ] T008 [P] Setup API routing and middleware structure
-- [ ] T009 Create base models/entities that all stories depend on
-- [ ] T010 Configure error handling and logging infrastructure
-- [ ] T011 Setup environment configuration management
-- [ ] T012 Define module boundary contracts and public interfaces
-- [ ] T013 Configure security/privacy safeguards for secrets, permissions, and data retention
+- [ ] T006 Define target learner, prior knowledge, and 13+ difficulty boundary
+- [ ] T007 [P] Define learning goal and practical work scenario
+- [ ] T008 [P] List required lesson sections and acceptance checklist
+- [ ] T009 Define key terms, analogies, and glossary entries
+- [ ] T010 Define hands-on exercise or mini-task and thinking question
+- [ ] T011 Define AI safety, privacy, copyright, data sensitivity, and human judgment notes if applicable
+- [ ] T012 Define translation/localization rules for Korean, English, and Japanese
+- [ ] T013 Define Markdown/GitBook review criteria
 
-**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
+**Checkpoint**: Foundation ready - user story drafting can now begin in parallel
 
 ---
 
-## Phase 3: User Story 1 - [Title] (Priority: P1) 🎯 MVP
+## Phase 3: User Story 1 - [Title] (Priority: P1) MVP
 
 **Goal**: [Brief description of what this story delivers]
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 ⚠️
+### Verification for User Story 1
 
-> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+> **NOTE: Define review checks before drafting or localization**
 
-- [ ] T014 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T015 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
-- [ ] T016 [P] [US1] Accessibility or keyboard-flow test for [surface] in tests/accessibility/test_[name].py
+- [ ] T014 [P] [US1] Lesson-structure checklist for required sections
+- [ ] T015 [P] [US1] Multilingual consistency checklist for Korean, English, and Japanese
+- [ ] T016 [P] [US1] GitBook Markdown review checklist for headings, callouts, tables, links, and page length
 
-### Implementation for User Story 1
+### Authoring for User Story 1
 
-- [ ] T017 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T018 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T019 [US1] Implement [Service] in src/services/[service].py (depends on T017, T018)
-- [ ] T020 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T021 [US1] Add validation, authorization, and error handling
-- [ ] T022 [US1] Add logging without secrets or personal data exposure
-- [ ] T023 [US1] Add or update Storybook story/design-system coverage for reusable UI in [path]
+- [ ] T017 [US1] Draft canonical Korean lesson in [path]
+- [ ] T018 [US1] Add simple example, hands-on exercise, thinking question, common mistakes, summary, and next step
+- [ ] T019 [US1] Add AI safety notes where applicable
+- [ ] T020 [US1] Localize English version in [path]
+- [ ] T021 [US1] Localize Japanese version in [path]
+- [ ] T022 [US1] Update glossary or terminology notes in [path]
+- [ ] T023 [US1] Review all three language versions for structure, meaning, terminology, examples, exercises, and learning outcomes
 
-**Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
+**Checkpoint**: At this point, User Story 1 should be readable, localized, and reviewable independently
 
 ---
 
@@ -114,17 +118,17 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 2 ⚠️
+### Verification for User Story 2
 
-- [ ] T024 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T025 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T024 [P] [US2] Lesson-structure checklist for required sections
+- [ ] T025 [P] [US2] Multilingual consistency and GitBook Markdown review
 
-### Implementation for User Story 2
+### Authoring for User Story 2
 
-- [ ] T026 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US2] Implement [Service] in src/services/[service].py
-- [ ] T028 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T029 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T026 [US2] Draft canonical Korean lesson/content update in [path]
+- [ ] T027 [US2] Localize English version in [path]
+- [ ] T028 [US2] Localize Japanese version in [path]
+- [ ] T029 [US2] Update terminology and next-step links across related lessons
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -136,18 +140,18 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 3 ⚠️
+### Verification for User Story 3
 
-- [ ] T030 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T031 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T030 [P] [US3] Lesson-structure checklist for required sections
+- [ ] T031 [P] [US3] Multilingual consistency and GitBook Markdown review
 
-### Implementation for User Story 3
+### Authoring for User Story 3
 
-- [ ] T032 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T033 [US3] Implement [Service] in src/services/[service].py
-- [ ] T034 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T032 [US3] Draft canonical Korean lesson/content update in [path]
+- [ ] T033 [US3] Localize English version in [path]
+- [ ] T034 [US3] Localize Japanese version in [path]
 
-**Checkpoint**: All user stories should now be independently functional
+**Checkpoint**: All user stories should now be independently readable, localized, and reviewable
 
 ---
 
@@ -159,14 +163,10 @@ Examples of foundational tasks (adjust based on your project):
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] TXXX [P] Documentation updates in docs/
-- [ ] TXXX Code cleanup and refactoring
-- [ ] TXXX Performance budget measurement and optimization across all stories
-- [ ] TXXX [P] Additional unit tests in tests/unit/
-- [ ] TXXX Accessibility audit and remediation
-- [ ] TXXX Security and privacy hardening
-- [ ] TXXX Storybook/design-system review for reusable UI changes
-- [ ] TXXX Run format, lint, type-check, and full test suite
+- [ ] TXXX [P] Final terminology consistency pass across Korean, English, and Japanese
+- [ ] TXXX [P] Final AI safety and human judgment review where applicable
+- [ ] TXXX [P] Final GitBook Markdown formatting, link, heading, callout, table, and file naming review
+- [ ] TXXX Confirm every lesson includes exercise, thinking question, practical work scenario, summary, and next step
 - [ ] TXXX Run configured extension quality gates
 - [ ] TXXX Run quickstart.md validation
 
@@ -191,11 +191,11 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Within Each User Story
 
-- Tests MUST be written and FAIL before implementation unless an explicit
-  override is recorded in plan.md
-- Models before services
-- Services before endpoints
-- Core implementation before integration
+- Review checklists MUST be defined before drafting/localization unless an
+  explicit override is recorded in plan.md
+- Canonical Korean source before English/Japanese localization
+- Terminology decisions before final translation review
+- Core lesson content before GitBook formatting review
 - Story complete before moving to next priority
 
 ### Parallel Opportunities
@@ -203,22 +203,23 @@ Examples of foundational tasks (adjust based on your project):
 - All Setup tasks marked [P] can run in parallel
 - All Foundational tasks marked [P] can run in parallel (within Phase 2)
 - Once Foundational phase completes, all user stories can start in parallel (if team capacity allows)
-- All tests for a user story marked [P] can run in parallel
-- Models within a story marked [P] can run in parallel
-- Different user stories can be worked on in parallel by different team members
+- All review checks for a user story marked [P] can run in parallel
+- Localization tasks for different language files can run in parallel after the
+  canonical Korean source is stable
+- Different user stories can be worked on in parallel by different contributors
 
 ---
 
 ## Parallel Example: User Story 1
 
 ```bash
-# Launch all tests for User Story 1 together:
-Task: "Contract test for [endpoint] in tests/contract/test_[name].py"
-Task: "Integration test for [user journey] in tests/integration/test_[name].py"
+# Launch review checks for User Story 1 together:
+Task: "Lesson-structure checklist for required sections"
+Task: "GitBook Markdown review checklist for headings and links"
 
-# Launch all models for User Story 1 together:
-Task: "Create [Entity1] model in src/models/[entity1].py"
-Task: "Create [Entity2] model in src/models/[entity2].py"
+# Launch localization tasks after the Korean source is stable:
+Task: "Localize English version in [path]"
+Task: "Localize Japanese version in [path]"
 ```
 
 ---
@@ -230,27 +231,27 @@ Task: "Create [Entity2] model in src/models/[entity2].py"
 1. Complete Phase 1: Setup
 2. Complete Phase 2: Foundational (CRITICAL - blocks all stories)
 3. Complete Phase 3: User Story 1
-4. **STOP and VALIDATE**: Test User Story 1 independently
-5. Deploy/demo if ready
+4. **STOP and VALIDATE**: Review User Story 1 independently
+5. Publish/demo if ready
 
 ### Incremental Delivery
 
 1. Complete Setup + Foundational → Foundation ready
-2. Add User Story 1 → Test independently → Deploy/Demo (MVP!)
-3. Add User Story 2 → Test independently → Deploy/Demo
-4. Add User Story 3 → Test independently → Deploy/Demo
+2. Add User Story 1 → Review independently → Publish/Demo (MVP)
+3. Add User Story 2 → Review independently → Publish/Demo
+4. Add User Story 3 → Review independently → Publish/Demo
 5. Each story adds value without breaking previous stories
 
-### Parallel Team Strategy
+### Parallel Contributor Strategy
 
-With multiple developers:
+With multiple contributors:
 
 1. Team completes Setup + Foundational together
 2. Once Foundational is done:
-   - Developer A: User Story 1
-   - Developer B: User Story 2
-   - Developer C: User Story 3
-3. Stories complete and integrate independently
+   - Contributor A: User Story 1
+   - Contributor B: User Story 2
+   - Contributor C: User Story 3
+3. Stories complete and align independently
 
 ---
 
@@ -258,10 +259,10 @@ With multiple developers:
 
 - [P] tasks = different files, no dependencies
 - [Story] label maps task to specific user story for traceability
-- Each user story should be independently completable and testable
-- Verify tests fail before implementing unless plan.md records an explicit override
-- Keep design-system and Storybook tasks with the story that introduces reusable UI
-- Run accessibility, performance, security/privacy, and extension gates before marking done
+- Each user story should be independently completable and reviewable
+- Verify review criteria before drafting unless plan.md records an explicit override
+- Keep glossary, AI safety, and GitBook review tasks with the story that introduces them
+- Run multilingual consistency, AI safety, GitBook Markdown, glossary, and extension gates before marking done
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence

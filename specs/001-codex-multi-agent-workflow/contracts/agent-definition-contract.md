@@ -50,3 +50,10 @@ Each TOML file must include:
 ## Token Analysis Requirement
 
 Every agent must state that it triggers token analysis after its phase, including the phase name and expected artifact path under `.specify/token-analysis/runs/<run-label>/steps/<phase>.json`.
+
+## Validation Requirement
+
+Malformed, incomplete, mismatched, or unexpected role definitions must fail
+validation. Validation must parse each TOML file and enforce required files,
+required fields, expected `name` and `phase` values, non-empty string arrays, and
+the expected token step reference.
