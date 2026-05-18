@@ -19,6 +19,11 @@
   bash -n .agents/skills/speckit-guards/scripts/*.sh
   ```
 
+- Agent definition structural validation:
+  ```bash
+  .agents/skills/speckit-guards/scripts/validate-agent-definitions.sh
+  ```
+
 - Token step schema:
   ```bash
   jq empty specs/001-codex-multi-agent-workflow/contracts/token-step.schema.json
@@ -39,6 +44,17 @@
   test -f .agents/skills/speckit-rules/SKILL.md
   test -f .agents/skills/speckit-guards/SKILL.md
   test -f .agents/skills/speckit-token-observability/SKILL.md
+  ```
+
+- Malformed and incomplete agent definition rejection:
+  ```bash
+  tmp_dir="$(mktemp -d)"
+  cp .codex/agents/*.toml "$tmp_dir/"
+  printf 'name = [\n' > "$tmp_dir/speckit-slicer.toml"
+  .agents/skills/speckit-guards/scripts/validate-agent-definitions.sh --agent-dir "$tmp_dir" && exit 1 || true
+  printf 'name = "speckit-slicer"\nphase = "slicing"\n' > "$tmp_dir/speckit-slicer.toml"
+  .agents/skills/speckit-guards/scripts/validate-agent-definitions.sh --agent-dir "$tmp_dir" && exit 1 || true
+  rm -rf "$tmp_dir"
   ```
 
 - Forbidden path literal scan:
@@ -106,6 +122,8 @@
 ## Guard Results
 
 - `bash -n .agents/skills/speckit-guards/scripts/*.sh`: PASS
+- `.agents/skills/speckit-guards/scripts/validate-agent-definitions.sh`: PASS
+- Malformed and incomplete agent definition rejection: EXPECTED FAIL, invalid TOML and incomplete role definitions rejected
 - `jq empty specs/001-codex-multi-agent-workflow/contracts/token-step.schema.json`: PASS
 - `.agents/skills/speckit-guards/scripts/guard-token-analyzer-available.sh`: PASS, token-analyzer extension directory detected
 - `guard-before-implement.sh` against `fixtures/critical-analyze-result.md`: EXPECTED FAIL, CRITICAL analyze issue blocked implementation
@@ -116,6 +134,7 @@
 - Token step JSON validation for current run: PASS
 - PR token section field validation in `.codex/agents/speckit-pr-creator.toml`: PASS
 - Codex agent TOML parse validation with Python `tomllib`: PASS
+- Codex agent structural validation: PASS
 - Generated workflow asset placeholder scan: PASS
 - After-implementation version guard validation: SKIPPED, no dependency sources found and no package compatibility rules apply
 

@@ -31,12 +31,22 @@ done
 for script in \
   guard-no-app-code-change.sh guard-before-implement.sh guard-before-commit.sh \
   guard-before-pr.sh guard-token-analyzer-available.sh record-token-step.sh \
-  generate-token-report.sh; do
+  generate-token-report.sh validate-agent-definitions.sh; do
   bash -n ".agents/skills/speckit-guards/scripts/${script}" || exit 1
 done
 ```
 
-## 4. Verify Token Analyzer Detection
+## 4. Validate Agent Definitions
+
+```bash
+.agents/skills/speckit-guards/scripts/validate-agent-definitions.sh
+```
+
+Expected result: pass. A malformed TOML file, missing required field, wrong
+`name`, wrong `phase`, empty required array, or missing token step reference must
+fail.
+
+## 5. Verify Token Analyzer Detection
 
 ```bash
 .agents/skills/speckit-guards/scripts/guard-token-analyzer-available.sh
@@ -44,7 +54,7 @@ done
 
 Expected result in this repository: pass, because `.specify/extensions/token-analyzer/` exists.
 
-## 5. Record a Dry-Run Token Step
+## 6. Record a Dry-Run Token Step
 
 ```bash
 .agents/skills/speckit-guards/scripts/record-token-step.sh \
@@ -64,7 +74,7 @@ Then validate:
 jq empty .specify/token-analysis/runs/2026-05-18-codex-multi-agent-workflow-s01-gated/steps/plan.json
 ```
 
-## 6. Generate a Token Report
+## 7. Generate a Token Report
 
 ```bash
 .agents/skills/speckit-guards/scripts/generate-token-report.sh \
@@ -77,13 +87,13 @@ Expected artifacts:
 - `.specify/token-analysis/runs/2026-05-18-codex-multi-agent-workflow-s01-gated/report.md`
 - `.specify/token-analysis/runs/2026-05-18-codex-multi-agent-workflow-s01-gated/quality-notes.md`
 
-## 7. Check Forbidden Path Assumptions
+## 8. Check Forbidden Path Assumptions
 
 ```bash
 ! rg "\\.claude/" .codex .agents AGENTS.md
 ```
 
-## 8. Confirm PR Token Section Contract
+## 9. Confirm PR Token Section Contract
 
 Inspect `speckit-pr-creator.toml` and `speckit-auto/SKILL.md` to verify PR bodies include:
 

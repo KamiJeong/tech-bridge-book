@@ -18,9 +18,9 @@ Add a Codex-native Spec Kit orchestration layer made of project-scoped Codex age
 
 **Storage**: Repository files only: `.codex/agents/`, `.agents/skills/`, `AGENTS.md`, and `.specify/token-analysis/`.
 
-**Testing**: Shell syntax checks for guard scripts, JSON validation with `jq`, repository scans with `rg`, and manual workflow dry-run checks through generated quickstart steps.
+**Testing**: Shell syntax checks for guard scripts, agent-definition structural validation, JSON validation with `jq`, repository scans with `rg`, and manual workflow dry-run checks through generated quickstart steps.
 
-**Type Safety**: JSON artifacts validated by documented schemas/contracts; TOML agents validated by required key presence and TOML parseability where tooling is available; shell scripts use strict mode.
+**Type Safety**: JSON artifacts validated by documented schemas/contracts; TOML agents validated by parseability, required fields, expected role names, expected phases, and non-empty structured arrays; shell scripts use strict mode.
 
 **Target Platform**: Local developer workstation running the repository's Spec Kit workflow.
 
@@ -40,11 +40,11 @@ Add a Codex-native Spec Kit orchestration layer made of project-scoped Codex age
 
 **Local-First Strategy**: All workflow checks, reports, and dry-run validations operate on local files. GitHub is used only when draft PR creation is explicitly requested.
 
-**Quality Commands**: `jq empty` for JSON artifacts, `bash -n` for shell guard scripts, `rg` scans for forbidden Claude Code path assumptions and missing token-analysis references, `git status --short` for unrelated-change checks, and dry-run script execution where safe.
+**Quality Commands**: `jq empty` for JSON artifacts, `bash -n` for shell guard scripts, `.agents/skills/speckit-guards/scripts/validate-agent-definitions.sh` for agent role definitions, `rg` scans for forbidden Claude Code path assumptions and missing token-analysis references, `git status --short` for unrelated-change checks, and dry-run script execution where safe.
 
 **Extension Gates**: `version-guard.check` before planning, optional `git.commit` and docguard review hooks before planning, optional `git.commit` and token-analyzer baseline hooks after planning. Token observability is required for this workflow, with estimation fallback when exact token data is unavailable.
 
-**Scale/Scope**: 14 Codex agent definitions, 4 Codex skills, 7 guard/report scripts, token-analysis run conventions, per-slice and aggregate reporting guidance, and PR body token-summary requirements.
+**Scale/Scope**: 14 Codex agent definitions, 4 Codex skills, 8 guard/report scripts, token-analysis run conventions, per-slice and aggregate reporting guidance, and PR body token-summary requirements.
 
 ## Constitution Check
 
@@ -121,6 +121,7 @@ specs/001-codex-multi-agent-workflow/
     │       ├── guard-before-commit.sh
     │       ├── guard-before-pr.sh
     │       ├── guard-token-analyzer-available.sh
+    │       ├── validate-agent-definitions.sh
     │       ├── record-token-step.sh
     │       └── generate-token-report.sh
     └── speckit-token-observability/
