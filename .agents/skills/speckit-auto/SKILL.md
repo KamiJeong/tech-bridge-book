@@ -17,10 +17,12 @@ as the feature request and inspect linked comments, checklists, and sub-issues
 before starting.
 
 This trigger does not override normal safety gates. Follow the requested mode
-from the issue when present; otherwise use `gated`. Implementation is allowed
-only when the issue explicitly requests `auto-implement` or when the user has
-already approved implementation in the current conversation. Commit and PR
-creation still require explicit `auto-commit` or `auto-pr` permission.
+from the issue when present; otherwise use `gated`. Treat human-readable issue
+template choices that include `(gated)`, `(auto-implement)`, or `(auto-pr)` as
+the corresponding mode. Implementation is allowed only when the issue explicitly
+requests `auto-implement` or when the user has already approved implementation
+in the current conversation. Commit and PR creation still require explicit
+`auto-commit` or `auto-pr` permission.
 
 Use GitHub issue labels as live workflow state:
 
