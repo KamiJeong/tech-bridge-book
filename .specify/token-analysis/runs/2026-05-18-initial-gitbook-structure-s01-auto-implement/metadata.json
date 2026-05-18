@@ -1,0 +1,10 @@
+{
+  "run_label": "2026-05-18-initial-gitbook-structure-s01-auto-implement",
+  "issue": 5,
+  "mode": "auto-implement",
+  "epic": "initial-gitbook-structure",
+  "slice_id": "s01",
+  "feature_directory": "specs/002-initial-gitbook-structure",
+  "created_date": "2026-05-18",
+  "notes": "GitHub issue #5 requested initial GitBook documentation structure and explicitly allowed auto-implement. No auto-commit or auto-pr permission was granted."
+}
