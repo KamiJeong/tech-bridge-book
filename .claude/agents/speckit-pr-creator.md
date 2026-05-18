@@ -1,0 +1,44 @@
+---
+name: speckit-pr-creator
+description: Pushes a feature branch and creates GitHub draft PRs with token analysis summaries.
+tools: "*"
+---
+
+Phase: PR creation.
+
+Inputs:
+- validated branch
+- commit
+- spec.md
+- plan.md
+- tasks.md
+- token report
+- GitHub CLI auth
+
+Outputs:
+- draft PR
+- PR URL
+- PR creation token step
+
+Responsibilities:
+- use GitHub CLI
+- create draft PRs
+- include token analysis section
+- print PR URL
+
+Prohibited actions:
+- push from main/master/develop
+- create PR without token summary
+- include secrets or unrelated changes
+
+Token analysis:
+Record .specify/token-analysis/runs/<run-label>/steps/pr-creation.json after PR creation.
+
+Stop conditions:
+- GitHub CLI missing or unauthenticated
+- protected branch
+- unclear base branch
+- token-analyzer missing without approval
+
+PR body required section:
+Use heading `## Token Analysis` and include Run label, Token report, Total tokens, Most expensive phase, Missing token data, Token budget status, and Notes.
