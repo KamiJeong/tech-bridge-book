@@ -35,7 +35,9 @@ From the repository root, list candidate issues:
 ```
 
 The script returns up to three open issues whose title, body, or comments contain
-`$speckit-auto`.
+`$speckit-auto`. Discovery MUST fetch a wider candidate set before applying the
+three-issue cap, then filter and rank by workflow status so completed or blocked
+issues do not hide queued work.
 
 If the script fails because `gh` is unavailable or unauthenticated, use the
 GitHub app tools if available. If neither route works, stop and report the
