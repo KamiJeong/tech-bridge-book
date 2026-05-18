@@ -1,22 +1,36 @@
 {
   "run_label": "2026-05-18-speckit-auto-update-s01-auto-pr",
-  "timestamp": "2026-05-18T06:51:51Z",
-  "step_count": 2,
+  "timestamp": "2026-05-18T06:53:02Z",
+  "step_count": 4,
   "tokens": {
     "total": 0,
     "estimated_input": 0,
     "estimated_output": 0,
     "estimated_total": 0
   },
-  "most_expensive_phase": "edit",
+  "most_expensive_phase": "commit",
   "missing_token_data": [
+    "commit",
     "edit",
+    "pr-creation",
     "token-reporting"
   ],
   "budget_status": "No token budget file found; no budget enforcement applied.",
   "steps": [
     {
+      "phase": "commit",
+      "capture_method": "unavailable",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
       "phase": "edit",
+      "capture_method": "unavailable",
+      "estimated_total": 0,
+      "total": 0
+    },
+    {
+      "phase": "pr-creation",
       "capture_method": "unavailable",
       "estimated_total": 0,
       "total": 0
