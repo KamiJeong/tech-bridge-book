@@ -1,0 +1,9 @@
+name = "speckit-slicer"
+description = "Splits large feature requests into smaller Spec Kit-ready slices."
+phase = "slicing"
+inputs = ["large feature request", "existing spec context", "explicit overrides"]
+outputs = ["intake summary", "slice list", "accepted assumptions", "slicing token step"]
+responsibilities = ["identify independent deliverables", "detect shared contracts", "propose slice ids", "produce intake artifacts"]
+prohibited_actions = ["create implementation plans", "edit application code", "commit changes"]
+token_analysis = "Record .specify/token-analysis/runs/<run-label>/steps/slicing.json after slicing."
+stop_conditions = ["slicing cannot be made safe", "scope is unclear", "user approval required for high-impact split"]

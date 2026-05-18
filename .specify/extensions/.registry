@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "extensions": {
+    "git": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:9731aa8143a72fbebfdb440f155038ab42642517c2b2bdbbf67c8fdbe076ed79",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.git.feature",
+          "speckit.git.validate",
+          "speckit.git.remote",
+          "speckit.git.initialize",
+          "speckit.git.commit"
+        ],
+        "codex": [
+          "speckit.git.feature",
+          "speckit.git.validate",
+          "speckit.git.remote",
+          "speckit.git.initialize",
+          "speckit.git.commit"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-05-13T02:12:19.963527+00:00"
+    },
+    "docguard": {
+      "version": "0.9.9",
+      "source": "local",
+      "manifest_hash": "sha256:fc17a9e01896a6e497e4bc29435064b604f064a9a1ba8873cef4b9cd8e2efc65",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.docguard.guard",
+          "docguard.guard",
+          "speckit.docguard.fix",
+          "docguard.fix",
+          "speckit.docguard.review",
+          "docguard.review",
+          "speckit.docguard.score",
+          "docguard.score",
+          "speckit.docguard.diagnose",
+          "speckit.docguard.generate"
+        ],
+        "codex": [
+          "speckit.docguard.guard",
+          "docguard.guard",
+          "speckit.docguard.fix",
+          "docguard.fix",
+          "speckit.docguard.review",
+          "docguard.review",
+          "speckit.docguard.score",
+          "docguard.score",
+          "speckit.docguard.diagnose",
+          "speckit.docguard.generate"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-05-13T02:42:58.723157+00:00"
+    },
+    "verify": {
+      "version": "1.0.3",
+      "source": "local",
+      "manifest_hash": "sha256:74202b2c3bb17058b10787838cdf30c9ebe11e8793fc1de04bee75d5f111949a",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.verify.run"
+        ],
+        "codex": [
+          "speckit.verify.run"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-05-13T02:46:23.321055+00:00"
+    },
+    "verify-tasks": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:6428b6dccaa3daa8aa5d72a73001cd3f82b9908e8c67bedd84697dd7547c96e8",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.verify-tasks.run",
+          "speckit.verify-tasks"
+        ],
+        "codex": [
+          "speckit.verify-tasks.run",
+          "speckit.verify-tasks"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-05-13T02:46:34.755450+00:00"
+    },
+    "version-guard": {
+      "version": "1.2.0",
+      "source": "local",
+      "manifest_hash": "sha256:e615d115dfbca910d5a3c92ee74296a140c4c7ca3b86e50730e4cffed2509184",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.version-guard.check",
+          "speckit.version-guard.load",
+          "speckit.version-guard.validate"
+        ],
+        "codex": [
+          "speckit.version-guard.check",
+          "speckit.version-guard.load",
+          "speckit.version-guard.validate"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-05-13T02:46:53.251557+00:00"
+    },
+    "token-analyzer": {
+      "version": "0.1.0",
+      "source": "local",
+      "manifest_hash": "sha256:185bdba94ac6226a29e6d043873292e439afb2b539aa6272bda2dcf1d1da62d4",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.token-analyzer.baseline",
+          "speckit.token-analyzer.compare",
+          "speckit.token-analyzer.report"
+        ],
+        "codex": [
+          "speckit.token-analyzer.baseline",
+          "speckit.token-analyzer.compare",
+          "speckit.token-analyzer.report"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-05-13T02:47:04.206036+00:00"
+    },
+    "checkpoint": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:f1f8587fcfee109d13e5fd2837df498439695218b32d00083f6e98095fca64c0",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.checkpoint.commit"
+        ],
+        "codex": [
+          "speckit.checkpoint.commit"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-05-13T02:48:19.666341+00:00"
+    }
+  }
+}

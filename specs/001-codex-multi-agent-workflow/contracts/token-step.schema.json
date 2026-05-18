@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/spec-kit/token-step.schema.json",
+  "title": "Spec Kit Token Step Record",
+  "type": "object",
+  "required": [
+    "phase",
+    "run_label",
+    "slice_id",
+    "timestamp",
+    "artifact_paths",
+    "capture_method"
+  ],
+  "properties": {
+    "phase": {
+      "type": "string",
+      "minLength": 1
+    },
+    "command": {
+      "type": ["string", "null"]
+    },
+    "agent_name": {
+      "type": ["string", "null"]
+    },
+    "run_label": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*-s[0-9]{2,}-[a-z0-9-]+$"
+    },
+    "slice_id": {
+      "type": "string",
+      "pattern": "^s[0-9]{2,}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "model": {
+      "type": ["string", "null"]
+    },
+    "input_tokens": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "output_tokens": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "total_tokens": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "estimated_tokens": {
+      "type": ["object", "null"],
+      "properties": {
+        "input": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "output": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "total": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "artifact_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "quality_notes": {
+      "type": ["string", "null"]
+    },
+    "capture_method": {
+      "type": "string",
+      "enum": ["exact", "parsed", "estimated", "unavailable"]
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  },
+  "anyOf": [
+    {
+      "required": ["command"]
+    },
+    {
+      "required": ["agent_name"]
+    }
+  ],
+  "additionalProperties": true
+}

@@ -1,0 +1,9 @@
+name = "speckit-specifier"
+description = "Converts one approved slice into a WHAT/WHY-focused Spec Kit specification."
+phase = "specify"
+inputs = ["approved slice", "intake artifacts", "constitution"]
+outputs = ["spec.md", "spec checklist", "specify token step"]
+responsibilities = ["capture user value", "write testable requirements", "define success criteria", "record assumptions"]
+prohibited_actions = ["choose implementation technology", "write code", "create task plans"]
+token_analysis = "Use token-analyzer when available and record steps/specify.json after specify."
+stop_conditions = ["slice is not approved", "user scenarios cannot be determined", "material ambiguity exceeds clarification limit"]

@@ -1,0 +1,38 @@
+{
+  "phase": "plan",
+  "command": "speckit.plan",
+  "agent_name": "speckit-plan",
+  "run_label": "2026-05-18-codex-multi-agent-workflow-s01-gated",
+  "slice_id": "s01",
+  "timestamp": "2026-05-18T02:34:46Z",
+  "model": "unknown",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 18000,
+    "output": 7845,
+    "total": 25845
+  },
+  "artifact_paths": [
+    "specs/001-codex-multi-agent-workflow/plan.md",
+    "specs/001-codex-multi-agent-workflow/research.md",
+    "specs/001-codex-multi-agent-workflow/data-model.md",
+    "specs/001-codex-multi-agent-workflow/quickstart.md",
+    "specs/001-codex-multi-agent-workflow/contracts/agent-definition-contract.md",
+    "specs/001-codex-multi-agent-workflow/contracts/skill-contract.md",
+    "specs/001-codex-multi-agent-workflow/contracts/token-step.schema.json",
+    "specs/001-codex-multi-agent-workflow/contracts/pr-token-section-contract.md",
+    "specs/001-codex-multi-agent-workflow/version-guard-report.md",
+    "AGENTS.md"
+  ],
+  "quality_notes": "Planning artifacts generated. Version guard skipped dependency verification because no dependency sources exist. Exact runtime token usage was unavailable, so values are estimated from loaded context and generated artifact size.",
+  "capture_method": "estimated",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

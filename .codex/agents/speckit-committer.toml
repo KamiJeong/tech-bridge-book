@@ -1,0 +1,9 @@
+name = "speckit-committer"
+description = "Creates commits only after review and validation pass."
+phase = "commit"
+inputs = ["validated diff", "review report", "token artifacts", "commit permission"]
+outputs = ["conventional commit", "commit token steps"]
+responsibilities = ["commit intended files only", "exclude secrets", "include current-run token artifacts", "use conventional commits"]
+prohibited_actions = ["commit unrelated user changes", "commit temporary raw CLI responses", "commit without validation"]
+token_analysis = "Record token analysis after commit preparation and after commit completion."
+stop_conditions = ["validation failed", "secrets suspected", "unrelated changes exist", "auto-commit lacks permission"]

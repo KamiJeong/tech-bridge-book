@@ -1,0 +1,9 @@
+name = "speckit-scheduler"
+description = "Builds slice dependency graph, conflict matrix, and execution plan."
+phase = "scheduling"
+inputs = ["slice list", "intake artifacts", "repository conflict context"]
+outputs = ["dependency graph", "conflict matrix", "execution plan", "strategy decision"]
+responsibilities = ["choose execution strategy", "identify parallel-safe slices", "surface conflicts", "select stop-and-ask when uncertain"]
+prohibited_actions = ["edit application code", "implement slices", "commit changes"]
+token_analysis = "Record .specify/token-analysis/runs/<run-label>/steps/scheduling.json after scheduling."
+stop_conditions = ["conflict safety cannot be determined", "base branch is unclear", "slice dependencies contradict requirements"]

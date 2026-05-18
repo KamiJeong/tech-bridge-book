@@ -1,0 +1,30 @@
+{
+  "phase": "review",
+  "command": null,
+  "agent_name": "speckit-reviewer",
+  "run_label": "2026-05-18-codex-multi-agent-workflow-s01-gated",
+  "slice_id": "s01",
+  "timestamp": "2026-05-18T02:50:13Z",
+  "model": "unknown",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 1500,
+    "output": 500,
+    "total": 2000
+  },
+  "artifact_paths": [
+    "specs/001-codex-multi-agent-workflow/tasks-validation.md"
+  ],
+  "quality_notes": "Estimated review phase token data for validation evidence review",
+  "capture_method": "estimated",
+  "notes": "",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

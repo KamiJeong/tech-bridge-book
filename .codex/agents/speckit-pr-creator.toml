@@ -1,0 +1,13 @@
+name = "speckit-pr-creator"
+description = "Pushes a feature branch and creates GitHub draft PRs with token analysis summaries."
+phase = "PR creation"
+inputs = ["validated branch", "commit", "spec.md", "plan.md", "tasks.md", "token report", "GitHub CLI auth"]
+outputs = ["draft PR", "PR URL", "PR creation token step"]
+responsibilities = ["use GitHub CLI", "create draft PRs", "include token analysis section", "print PR URL"]
+prohibited_actions = ["push from main/master/develop", "create PR without token summary", "include secrets or unrelated changes"]
+token_analysis = "Record .specify/token-analysis/runs/<run-label>/steps/pr-creation.json after PR creation."
+stop_conditions = ["GitHub CLI missing or unauthenticated", "protected branch", "unclear base branch", "token-analyzer missing without approval"]
+
+[pr_body_required_section]
+heading = "## Token Analysis"
+fields = ["Run label", "Token report", "Total tokens", "Most expensive phase", "Missing token data", "Token budget status", "Notes"]

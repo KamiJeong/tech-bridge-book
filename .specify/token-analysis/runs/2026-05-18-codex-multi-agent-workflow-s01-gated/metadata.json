@@ -1,0 +1,13 @@
+{
+  "run_label": "2026-05-18-codex-multi-agent-workflow-s01-gated",
+  "scenario": "Specify Codex Spec Kit multi-agent workflow with mandatory token analysis",
+  "preset": "standard",
+  "integration": "codex",
+  "timestamp": "2026-05-18T02:39:08Z",
+  "commands": ["specify", "clarify", "plan", "tasks"],
+  "mode": "gated",
+  "epic_slug": "codex-multi-agent-workflow",
+  "slice_id": "s01",
+  "token_analyzer_available": true,
+  "token_analyzer_detection": [".specify/extensions/token-analyzer/"]
+}

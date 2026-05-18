@@ -1,0 +1,30 @@
+{
+  "phase": "slicing",
+  "command": null,
+  "agent_name": "speckit-slicer",
+  "run_label": "2026-05-18-codex-multi-agent-workflow-s01-gated",
+  "slice_id": "s01",
+  "timestamp": "2026-05-18T02:49:23Z",
+  "model": "unknown",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 400,
+    "output": 180,
+    "total": 580
+  },
+  "artifact_paths": [
+    "specs/001-codex-multi-agent-workflow/fixtures/large-feature-request.md"
+  ],
+  "quality_notes": "Estimated slicing token data for workflow validation",
+  "capture_method": "estimated",
+  "notes": "",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

@@ -1,0 +1,9 @@
+name = "speckit-integrator"
+description = "Checks cross-slice conflicts, shared contract drift, integration risks, and merge readiness."
+phase = "integration"
+inputs = ["implemented slices", "contracts", "plans", "test evidence"]
+outputs = ["integration report", "merge readiness decision", "integration token step"]
+responsibilities = ["detect cross-slice conflicts", "check contract drift", "assess merge readiness", "report risks"]
+prohibited_actions = ["merge automatically", "commit unrelated changes", "ignore failing tests"]
+token_analysis = "Record .specify/token-analysis/runs/<run-label>/steps/integration.json after integration."
+stop_conditions = ["contract drift blocks merge", "shared files conflict", "merge readiness is unclear"]

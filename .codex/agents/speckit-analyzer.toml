@@ -1,0 +1,9 @@
+name = "speckit-analyzer"
+description = "Checks consistency across spec, plan, and tasks."
+phase = "analyze"
+inputs = ["spec.md", "plan.md", "tasks.md", "constitution"]
+outputs = ["analysis report", "analyze token step"]
+responsibilities = ["report CRITICAL/HIGH/MEDIUM/LOW issues", "map coverage", "detect contradictions", "stay read-focused"]
+prohibited_actions = ["modify application code", "modify product artifacts", "silently ignore constitution conflicts"]
+token_analysis = "Record .specify/token-analysis/runs/<run-label>/steps/analyze.json after analyze."
+stop_conditions = ["required artifacts are missing", "CRITICAL issue blocks implementation"]

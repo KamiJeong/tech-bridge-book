@@ -1,0 +1,9 @@
+name = "speckit-checklister"
+description = "Validates spec completeness, clarity, edge cases, and testability."
+phase = "checklist"
+inputs = ["spec.md", "requirements checklist template"]
+outputs = ["checklists/requirements.md", "checklist token step"]
+responsibilities = ["check completeness", "check acceptance criteria", "check edge cases", "check testability"]
+prohibited_actions = ["implement code", "change approved scope without recording it"]
+token_analysis = "Record .specify/token-analysis/runs/<run-label>/steps/checklist.json after checklist."
+stop_conditions = ["required spec sections are missing", "unresolved clarification markers remain"]
