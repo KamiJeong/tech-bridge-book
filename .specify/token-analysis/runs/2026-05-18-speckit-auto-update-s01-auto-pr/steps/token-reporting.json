@@ -1,0 +1,30 @@
+{
+  "phase": "token-reporting",
+  "command": null,
+  "agent_name": null,
+  "run_label": "2026-05-18-speckit-auto-update-s01-auto-pr",
+  "slice_id": "s01",
+  "timestamp": "2026-05-18T06:51:21Z",
+  "model": "unknown",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": null,
+    "output": null,
+    "total": null
+  },
+  "artifact_paths": [
+    ".specify/token-analysis/runs/2026-05-18-speckit-auto-update-s01-auto-pr/report.md"
+  ],
+  "quality_notes": "",
+  "capture_method": "unavailable",
+  "notes": "Generated token report after workflow docs update.",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

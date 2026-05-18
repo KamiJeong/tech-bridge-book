@@ -1,0 +1,24 @@
+{
+  "run_label": "2026-05-18-speckit-auto-update-s01-auto-pr",
+  "timestamp": "2026-05-18T06:50:57Z",
+  "step_count": 1,
+  "tokens": {
+    "total": 0,
+    "estimated_input": 0,
+    "estimated_output": 0,
+    "estimated_total": 0
+  },
+  "most_expensive_phase": "edit",
+  "missing_token_data": [
+    "edit"
+  ],
+  "budget_status": "No token budget file found; no budget enforcement applied.",
+  "steps": [
+    {
+      "phase": "edit",
+      "capture_method": "unavailable",
+      "estimated_total": 0,
+      "total": 0
+    }
+  ]
+}
