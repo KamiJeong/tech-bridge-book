@@ -32,11 +32,14 @@ Default to gated behavior. For a full epic, run:
 - `gated`: run through analyze and ask before implementation, commit, or PR.
 - `auto-implement`: implement only low-risk slices after analyze passes; do not
   commit or open PRs unless explicitly permitted.
+- `auto-commit`: validate, token-report, and commit only when explicit
+  permission is present.
 - `auto-pr`: implement, validate, token-report, commit, push, and create a draft
   PR only when explicitly requested.
 
 `auto-commit` is an explicit permission flag, not a standalone mode. It may be
-enabled for `gated` or `auto-implement` after review and validation pass.
+enabled for `gated` or `auto-implement` after review and validation pass, and
+it authorizes the commit step inside an `auto-pr` run.
 
 ## Slicing And Scheduling
 
@@ -68,6 +71,12 @@ Stop on:
 - protected publishing branches: `main`, `master`, `develop`
 - explicitly configured blocking token budgets
 - missing token-analyzer in automation modes without approval
+
+## Issue Commentary
+
+Always add a short issue comment before each phase and before any terminal
+action such as commit, push, or PR creation. The comment should note the scope,
+label change, and any gate result.
 
 ## Token Observability
 
