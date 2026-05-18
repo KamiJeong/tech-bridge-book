@@ -35,9 +35,10 @@ From the repository root, list candidate issues:
 ```
 
 The script returns up to three open issues whose title, body, or comments contain
-`$speckit-auto`. Discovery MUST fetch a wider candidate set before applying the
-three-issue cap, then filter and rank by workflow status so completed or blocked
-issues do not hide queued work.
+`$speckit-auto`. Discovery MUST fetch `status:queued` candidates first. If fewer
+than three queued issues are available, fetch a wider candidate set before
+applying the three-issue cap, then filter and rank by workflow status so
+completed or blocked issues do not hide runnable work.
 
 If the script fails because `gh` is unavailable or unauthenticated, use the
 GitHub app tools if available. If neither route works, stop and report the
@@ -53,7 +54,7 @@ When the user asks to "check issues" without numbers:
 1. List up to 3 candidates.
 2. Exclude issues already labeled `status:in-progress`, `status:blocked`,
    `status:waiting-review`, `status:done`, or `status:failed`.
-3. Prefer issues labeled `status:queued`.
+3. Prefer issues labeled `status:queued` by querying queued issues first.
 4. Otherwise prefer oldest updated issue first, unless priority labels indicate
    `priority:P1`, then `priority:P2`, then `priority:P3`.
 5. If selection is still ambiguous, present the candidate numbers and ask the

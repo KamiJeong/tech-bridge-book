@@ -36,27 +36,49 @@ if ! command -v jq >/dev/null 2>&1; then
   exit 127
 fi
 
-gh issue list \
-  --search '$speckit-auto in:title,body,comments state:open' \
-  --limit "$fetch_limit" \
-  --json number,title,labels,url,updatedAt \
-  --jq "
-    def has_label(\$name): any(.labels[].name; . == \$name);
-    def excluded_status:
-      has_label(\"status:in-progress\") or
-      has_label(\"status:blocked\") or
-      has_label(\"status:waiting-review\") or
-      has_label(\"status:done\") or
-      has_label(\"status:failed\");
-    def status_rank:
-      if has_label(\"status:queued\") then 0 else 1 end;
-    def priority_rank:
-      if has_label(\"priority:P1\") then 0
-      elif has_label(\"priority:P2\") then 1
-      elif has_label(\"priority:P3\") then 2
-      else 3 end;
+rank_filter='
+  def has_label($name): any(.labels[].name; . == $name);
+  def excluded_status:
+    has_label("status:in-progress") or
+    has_label("status:blocked") or
+    has_label("status:waiting-review") or
+    has_label("status:done") or
+    has_label("status:failed");
+  def priority_rank:
+    if has_label("priority:P1") then 0
+    elif has_label("priority:P2") then 1
+    elif has_label("priority:P3") then 2
+    else 3 end;
 
-    [.[] | select(excluded_status | not)]
-    | sort_by(status_rank, priority_rank, .updatedAt)
-    | .[:$limit]
-  "
+  [.[] | select(excluded_status | not)]
+  | sort_by(priority_rank, .updatedAt)
+'
+
+queued_json="$(
+  gh issue list \
+    --search '$speckit-auto in:title,body,comments state:open label:"status:queued"' \
+    --limit "$fetch_limit" \
+    --json number,title,labels,url,updatedAt \
+    --jq "$rank_filter | .[:$limit]"
+)"
+
+queued_count="$(jq 'length' <<<"$queued_json")"
+
+if [ "$queued_count" -ge "$limit" ]; then
+  printf '%s\n' "$queued_json"
+  exit 0
+fi
+
+fallback_json="$(
+  gh issue list \
+    --search '$speckit-auto in:title,body,comments state:open -label:"status:queued"' \
+    --limit "$fetch_limit" \
+    --json number,title,labels,url,updatedAt \
+    --jq "$rank_filter"
+)"
+
+jq -s --argjson limit "$limit" '
+  add
+  | unique_by(.number)
+  | .[:$limit]
+' <(printf '%s\n' "$queued_json") <(printf '%s\n' "$fallback_json")
