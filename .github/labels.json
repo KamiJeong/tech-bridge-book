@@ -30,6 +30,41 @@
     "description": "Incorrect behavior, broken workflow, or invalid generated artifact"
   },
   {
+    "name": "agent:codex",
+    "color": "5319E7",
+    "description": "Issue is intended for Codex agent work"
+  },
+  {
+    "name": "trigger:speckit-auto",
+    "color": "1D76DB",
+    "description": "Issue should be handled by the $speckit-auto workflow"
+  },
+  {
+    "name": "mode:gated",
+    "color": "D4C5F9",
+    "description": "speckit-auto gated mode; ask before implementation, commit, or PR"
+  },
+  {
+    "name": "mode:auto-implement",
+    "color": "C2E0C6",
+    "description": "speckit-auto may implement low-risk slices after analysis passes"
+  },
+  {
+    "name": "mode:auto-pr",
+    "color": "0E8A16",
+    "description": "speckit-auto may implement, validate, commit, push, and open a draft PR"
+  },
+  {
+    "name": "relationship:parent",
+    "color": "BFDADC",
+    "description": "Parent issue for linked speckit-auto sub-issues"
+  },
+  {
+    "name": "relationship:sub-issue",
+    "color": "BFDADC",
+    "description": "Sub-issue created from a broader speckit-auto parent issue"
+  },
+  {
     "name": "phase:intake",
     "color": "C5DEF5",
     "description": "speckit-auto intake phase"
@@ -95,6 +130,16 @@
     "description": "Token observability and reporting phase"
   },
   {
+    "name": "phase:commit",
+    "color": "C2E0C6",
+    "description": "Commit phase after validation and review pass"
+  },
+  {
+    "name": "phase:pr-creation",
+    "color": "C2E0C6",
+    "description": "Draft PR creation phase"
+  },
+  {
     "name": "lang:ko",
     "color": "FBCA04",
     "description": "Korean canonical source content"
@@ -150,13 +195,43 @@
     "description": "Blocked by missing decision, failing gate, or unresolved dependency"
   },
   {
+    "name": "status:queued",
+    "color": "C5DEF5",
+    "description": "Queued for Codex speckit-auto work"
+  },
+  {
+    "name": "status:in-progress",
+    "color": "1D76DB",
+    "description": "Codex is actively working on this issue"
+  },
+  {
     "name": "status:needs-clarification",
     "color": "D4C5F9",
     "description": "Needs learner, scope, terminology, safety, or workflow clarification"
   },
   {
+    "name": "status:needs-sub-issues",
+    "color": "D4C5F9",
+    "description": "Issue should be split into linked sub-issues before implementation"
+  },
+  {
     "name": "status:ready",
     "color": "0E8A16",
     "description": "Ready for the next Spec Kit or content workflow phase"
+  },
+  {
+    "name": "status:waiting-review",
+    "color": "FBCA04",
+    "description": "Implementation or workflow output is ready for review"
+  },
+  {
+    "name": "status:done",
+    "color": "0E8A16",
+    "description": "Requested speckit-auto terminal action is complete"
+  },
+  {
+    "name": "status:failed",
+    "color": "D73A4A",
+    "description": "speckit-auto workflow failed and cannot continue without intervention"
   }
 ]

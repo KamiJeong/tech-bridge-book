@@ -20,7 +20,7 @@ Add a Codex-native Spec Kit orchestration layer made of project-scoped Codex age
 
 **Testing**: Shell syntax checks for guard scripts, agent-definition structural validation, JSON validation with `jq`, repository scans with `rg`, and manual workflow dry-run checks through generated quickstart steps.
 
-**Type Safety**: JSON artifacts validated by documented schemas/contracts; TOML agents validated by parseability, required fields, expected role names, expected phases, and non-empty structured arrays; shell scripts use strict mode.
+**Type Safety**: JSON artifacts validated by documented schemas/contracts; TOML agents validated by parseability, Codex-supported fields, expected role names, expected phases, and required `developer_instructions` sections; shell scripts use strict mode.
 
 **Target Platform**: Local developer workstation running the repository's Spec Kit workflow.
 

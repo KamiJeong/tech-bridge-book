@@ -1,0 +1,73 @@
+name: "$speckit-auto Codex task"
+description: "Ask Codex to run the Spec Kit auto workflow for this issue."
+title: "$speckit-auto: "
+labels:
+  - "trigger:speckit-auto"
+  - "agent:codex"
+  - "status:queued"
+  - "type:workflow"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for Codex-only work that should be handled through the `$speckit-auto` workflow. Codex will comment as it works and update labels after each phase.
+  - type: textarea
+    id: trigger
+    attributes:
+      label: Trigger
+      description: Keep `$speckit-auto` in this issue so Codex can recognize the workflow.
+      value: "$speckit-auto"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      description: Choose how far Codex may proceed.
+      options:
+        - "gated"
+        - "auto-implement"
+        - "auto-pr"
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Request
+      description: Describe the feature, bug, workflow change, or documentation change.
+      placeholder: "What should Codex implement or prepare?"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and constraints
+      description: List files, areas, languages, safety limits, or anything Codex must not change.
+      placeholder: "In scope: ...\nOut of scope: ..."
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable outcomes that make this issue complete.
+      placeholder: "- ...\n- ..."
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: Commands or checks Codex should run when relevant.
+      placeholder: "- ..."
+    validations:
+      required: false
+  - type: textarea
+    id: subissues
+    attributes:
+      label: Sub-issue guidance
+      description: If this is broad, say whether Codex may create linked sub-issues.
+      value: "Codex may create linked sub-issues when the work is too broad or has independent slices."
+    validations:
+      required: false

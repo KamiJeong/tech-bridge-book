@@ -9,6 +9,47 @@ compatibility: "Requires Spec Kit feature artifacts and Codex project-scoped age
 Default mode is `gated`. Before starting a full workflow, check token-analyzer
 availability with `.agents/skills/speckit-guards/scripts/guard-token-analyzer-available.sh`.
 
+## GitHub Issue Trigger Mode
+
+When a GitHub issue title, body, or comment contains `$speckit-auto`, treat the
+issue as an instruction to run this skill for Codex-only work. Use the issue body
+as the feature request and inspect linked comments, checklists, and sub-issues
+before starting.
+
+This trigger does not override normal safety gates. Follow the requested mode
+from the issue when present; otherwise use `gated`. Implementation is allowed
+only when the issue explicitly requests `auto-implement` or when the user has
+already approved implementation in the current conversation. Commit and PR
+creation still require explicit `auto-commit` or `auto-pr` permission.
+
+Use GitHub issue labels as live workflow state:
+
+- Add `trigger:speckit-auto` and `agent:codex` when taking the issue.
+- Add exactly one `mode:*` label when the mode is known.
+- Add `status:in-progress` when work starts.
+- Move the active `phase:*` label after every completed phase.
+- Use `status:needs-clarification` when a required decision is missing.
+- Use `status:blocked` when a stop condition is hit.
+- Use `status:waiting-review` after implementation and review evidence are ready.
+- Use `status:done` only after the requested terminal action is complete.
+- Use `status:failed` when the workflow cannot continue because validation or a
+  required external operation failed.
+
+Always add an issue comment before starting a phase and after completing a phase.
+Comments should state what Codex is doing, which files or artifacts are in scope,
+which label changed, and any gate result. Keep comments short and factual.
+
+If the issue is too broad or Codex determines sub-issues are needed, create
+sub-issues only in the same GitHub repository. Link them from the parent issue,
+label the parent with `status:needs-sub-issues` and `relationship:parent`, label
+each child with `relationship:sub-issue`, `trigger:speckit-auto`, `agent:codex`,
+and the relevant `type:*`, `priority:*`, `risk:*`, and `mode:*` labels. Add a
+parent issue comment explaining the split and the execution order.
+
+Use the GitHub app tools when available for labels, comments, issue creation,
+and issue inspection. Use `gh` only as a fallback when the app tools cannot
+perform the needed operation.
+
 ## Orchestration Order
 
 1. intake
