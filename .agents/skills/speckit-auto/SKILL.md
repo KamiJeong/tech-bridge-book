@@ -21,8 +21,9 @@ from the issue when present; otherwise use `gated`. Treat human-readable issue
 template choices that include `(gated)`, `(auto-implement)`, or `(auto-pr)` as
 the corresponding mode. Implementation is allowed only when the issue explicitly
 requests `auto-implement` or when the user has already approved implementation
-in the current conversation. Commit and PR creation still require explicit
-`auto-commit` or `auto-pr` permission.
+in the current conversation. `auto-commit` and `auto-pr` are supported terminal
+actions, but they still require explicit permission before Codex commits,
+pushes, or opens a PR.
 
 Use GitHub issue labels as live workflow state:
 
@@ -38,8 +39,10 @@ Use GitHub issue labels as live workflow state:
   required external operation failed.
 
 Always add an issue comment before starting a phase and after completing a phase.
-Comments should state what Codex is doing, which files or artifacts are in scope,
-which label changed, and any gate result. Keep comments short and factual.
+Also add a short comment before any terminal action such as commit, push, or PR
+creation. Comments should state what Codex is doing, which files or artifacts are
+in scope, which label changed, and any gate result. Keep comments short and
+factual.
 
 If the issue is too broad or Codex determines sub-issues are needed, create
 sub-issues only in the same GitHub repository. Link them from the parent issue,
@@ -67,7 +70,8 @@ perform the needed operation.
 
 After every completed phase, record token usage using token-analyzer when
 available or `.agents/skills/speckit-guards/scripts/record-token-step.sh` when a
-phase is custom or unsupported.
+phase is custom or unsupported. Token reporting is mandatory before commit or
+PR creation.
 
 ## Intake And Slicing
 
@@ -114,8 +118,10 @@ For each approved slice, run:
 
 In `plan-only`, stop after analyze and token reporting. In `gated`, ask before
 implementation, commit, and PR. In `auto-implement`, implement only when analyze
-passes and the slice is low risk. In `auto-pr`, implement, validate, token-report,
-commit, push, and create a draft PR only when explicitly requested.
+passes and the slice is low risk. In `auto-commit`, validate, token-report, and
+commit only when explicit permission is present. In `auto-pr`, implement,
+validate, token-report, commit, push, and create a draft PR only when explicitly
+requested.
 
 ## Integration
 
@@ -128,7 +134,8 @@ integration.
 Commit only after review and validation pass. Use conventional commits by
 default. Commit only intended files, never secrets, and include token-analysis
 artifacts only when they belong to the current run. `auto-commit` is an explicit
-permission flag, not a standalone mode.
+permission flag, not a standalone mode, and may be used to authorize the commit
+step of an `auto-pr` run.
 
 ## Draft PR
 
