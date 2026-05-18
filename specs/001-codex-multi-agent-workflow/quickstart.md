@@ -45,8 +45,8 @@ done
 ```
 
 Expected result: pass. A malformed TOML file, missing required field, wrong
-`name`, wrong `phase`, empty required array, or missing token step reference must
-fail.
+`name`, missing phase instruction, unsupported top-level field, or missing token
+step reference must fail.
 
 ## 5. Verify Token Analyzer Detection
 

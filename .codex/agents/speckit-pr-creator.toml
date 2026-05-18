@@ -1,6 +1,5 @@
 name = "speckit-pr-creator"
 description = "Pushes a feature branch and creates GitHub draft PRs with token analysis summaries."
-phase = "PR creation"
 developer_instructions = """
 Phase: PR creation.
 

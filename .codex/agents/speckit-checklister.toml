@@ -1,6 +1,5 @@
 name = "speckit-checklister"
 description = "Validates spec completeness, clarity, edge cases, and testability."
-phase = "checklist"
 developer_instructions = """
 Phase: checklist.
 

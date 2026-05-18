@@ -1,6 +1,5 @@
 name = "speckit-clarifier"
 description = "Resolves material ambiguity in the active feature specification."
-phase = "clarify"
 developer_instructions = """
 Phase: clarify.
 

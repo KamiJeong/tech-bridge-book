@@ -1,6 +1,5 @@
 name = "speckit-tasker"
 description = "Converts the plan into ordered, independently verifiable tasks."
-phase = "tasks"
 developer_instructions = """
 Phase: tasks.
 

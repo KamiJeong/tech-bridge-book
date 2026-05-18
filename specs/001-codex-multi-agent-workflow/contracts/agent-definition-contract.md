@@ -25,12 +25,11 @@ Each TOML file must include:
 
 - `name`
 - `description`
-- `phase`
 - `developer_instructions`
 
-Codex role TOML must not use project-only top-level keys such as `inputs`,
-`outputs`, `responsibilities`, `prohibited_actions`, `token_analysis`, or
-`stop_conditions`. Those details must be represented inside
+Codex role TOML must not use project-only top-level keys such as `phase`,
+`inputs`, `outputs`, `responsibilities`, `prohibited_actions`,
+`token_analysis`, or `stop_conditions`. Those details must be represented inside
 `developer_instructions` so Codex can deserialize the role file.
 
 `developer_instructions` must include these sections:
@@ -64,6 +63,6 @@ Every agent must state that it triggers token analysis after its phase, includin
 
 Malformed, incomplete, mismatched, or unexpected role definitions must fail
 validation. Validation must parse each TOML file and enforce required files,
-required fields, no unsupported top-level fields, expected `name` and `phase`
-values, required `developer_instructions` sections, and the expected token step
-reference.
+required fields, no unsupported top-level fields, expected `name` values,
+required `developer_instructions` phase and sections, and the expected token
+step reference.
