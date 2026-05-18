@@ -1,0 +1,162 @@
+[
+  {
+    "name": "type:lesson",
+    "color": "0E8A16",
+    "description": "Learner-facing lesson content in Korean, English, and Japanese"
+  },
+  {
+    "name": "type:curriculum",
+    "color": "1D76DB",
+    "description": "Curriculum structure, learning path, prerequisites, or next-step work"
+  },
+  {
+    "name": "type:glossary",
+    "color": "5319E7",
+    "description": "Terminology and glossary entries across languages"
+  },
+  {
+    "name": "type:workflow",
+    "color": "BFDADC",
+    "description": "Spec Kit, Codex, GitHub Actions, or repository workflow work"
+  },
+  {
+    "name": "type:docs",
+    "color": "0075CA",
+    "description": "Project documentation, README, or process documentation"
+  },
+  {
+    "name": "type:bug",
+    "color": "D73A4A",
+    "description": "Incorrect behavior, broken workflow, or invalid generated artifact"
+  },
+  {
+    "name": "phase:intake",
+    "color": "C5DEF5",
+    "description": "speckit-auto intake phase"
+  },
+  {
+    "name": "phase:slicing",
+    "color": "C5DEF5",
+    "description": "speckit-auto slicing phase"
+  },
+  {
+    "name": "phase:scheduling",
+    "color": "C5DEF5",
+    "description": "speckit-auto scheduling phase"
+  },
+  {
+    "name": "phase:specify",
+    "color": "C2E0C6",
+    "description": "Spec Kit specify phase"
+  },
+  {
+    "name": "phase:clarify",
+    "color": "C2E0C6",
+    "description": "Spec Kit clarify phase"
+  },
+  {
+    "name": "phase:checklist",
+    "color": "C2E0C6",
+    "description": "Spec Kit checklist phase"
+  },
+  {
+    "name": "phase:plan",
+    "color": "C2E0C6",
+    "description": "Spec Kit plan phase"
+  },
+  {
+    "name": "phase:tasks",
+    "color": "C2E0C6",
+    "description": "Spec Kit tasks phase"
+  },
+  {
+    "name": "phase:analyze",
+    "color": "C2E0C6",
+    "description": "Spec Kit analyze phase"
+  },
+  {
+    "name": "phase:implement",
+    "color": "C2E0C6",
+    "description": "Spec Kit implement phase"
+  },
+  {
+    "name": "phase:review",
+    "color": "C2E0C6",
+    "description": "Review phase for lesson, workflow, or PR quality"
+  },
+  {
+    "name": "phase:integration",
+    "color": "C2E0C6",
+    "description": "Cross-slice integration and consistency phase"
+  },
+  {
+    "name": "phase:token-reporting",
+    "color": "C2E0C6",
+    "description": "Token observability and reporting phase"
+  },
+  {
+    "name": "lang:ko",
+    "color": "FBCA04",
+    "description": "Korean canonical source content"
+  },
+  {
+    "name": "lang:en",
+    "color": "FBCA04",
+    "description": "English localized content"
+  },
+  {
+    "name": "lang:ja",
+    "color": "FBCA04",
+    "description": "Japanese localized content"
+  },
+  {
+    "name": "priority:P1",
+    "color": "B60205",
+    "description": "Highest-priority learner or workflow value"
+  },
+  {
+    "name": "priority:P2",
+    "color": "D93F0B",
+    "description": "Medium-priority learner or workflow value"
+  },
+  {
+    "name": "priority:P3",
+    "color": "FBCA04",
+    "description": "Lower-priority learner or workflow value"
+  },
+  {
+    "name": "risk:low",
+    "color": "0E8A16",
+    "description": "Low risk change"
+  },
+  {
+    "name": "risk:medium",
+    "color": "FBCA04",
+    "description": "Medium risk change"
+  },
+  {
+    "name": "risk:high",
+    "color": "D93F0B",
+    "description": "High risk change requiring explicit review"
+  },
+  {
+    "name": "risk:critical",
+    "color": "B60205",
+    "description": "Critical blocker or release-stopping issue"
+  },
+  {
+    "name": "status:blocked",
+    "color": "B60205",
+    "description": "Blocked by missing decision, failing gate, or unresolved dependency"
+  },
+  {
+    "name": "status:needs-clarification",
+    "color": "D4C5F9",
+    "description": "Needs learner, scope, terminology, safety, or workflow clarification"
+  },
+  {
+    "name": "status:ready",
+    "color": "0E8A16",
+    "description": "Ready for the next Spec Kit or content workflow phase"
+  }
+]

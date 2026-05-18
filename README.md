@@ -124,6 +124,21 @@ Use this workflow for a new lesson or curriculum change:
    $speckit-analyze
    ```
 
+For issue tracking, use the labels in `.github/labels.json`. They are grouped
+to match the Spec Kit and `speckit-auto` workflow:
+
+- `phase:*` labels map to intake, slicing, scheduling, specify, clarify,
+  checklist, plan, tasks, analyze, implement, review, integration, and token
+  reporting.
+- `type:*` labels describe the work item, such as lesson, curriculum, glossary,
+  workflow, docs, or bug.
+- `lang:*` labels identify Korean, English, and Japanese content work.
+- `priority:*`, `risk:*`, and `status:*` labels support scheduling and gating.
+
+To sync labels in GitHub, run the **Sync GitHub Labels** workflow from the
+Actions tab. It can also run automatically when `.github/labels.json` changes
+on `main`.
+
 Useful direct request format:
 
 ```text
@@ -176,6 +191,9 @@ length.
 
 ```text
 .
+├── .github/
+│   ├── labels.json     # GitHub issue label definitions
+│   └── workflows/      # GitHub Actions workflows
 ├── .agents/           # Codex skill definitions
 ├── .codex/agents/     # Project-scoped Codex agent role definitions
 ├── .specify/          # Spec Kit config, templates, scripts, workflows, memory

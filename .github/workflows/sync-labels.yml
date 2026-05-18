@@ -1,0 +1,67 @@
+name: Sync GitHub Labels
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/labels.json
+      - .github/workflows/sync-labels.yml
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sync-labels:
+    name: Sync labels from .github/labels.json
+    runs-on: ubuntu-latest
+    steps:
+      - name: Load label definitions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REF: ${{ github.sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh api "repos/${REPO}/contents/.github/labels.json?ref=${REF}" \
+            --jq '.content' | base64 --decode > labels.json
+          jq -e '
+            type == "array"
+            and all(.[]; (
+              (.name | type == "string" and length > 0)
+              and (.color | test("^[0-9A-Fa-f]{6}$"))
+              and (.description | type == "string")
+            ))
+          ' labels.json >/dev/null
+
+      - name: Create or update labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          jq -c '.[]' labels.json | while read -r label; do
+            name="$(jq -r '.name' <<<"$label")"
+            color="$(jq -r '.color' <<<"$label")"
+            description="$(jq -r '.description' <<<"$label")"
+
+            if gh api "repos/${REPO}/labels/${name}" >/dev/null 2>&1; then
+              gh api \
+                --method PATCH \
+                "repos/${REPO}/labels/${name}" \
+                -f "new_name=${name}" \
+                -f "color=${color}" \
+                -f "description=${description}" >/dev/null
+              echo "updated ${name}"
+            else
+              gh api \
+                --method POST \
+                "repos/${REPO}/labels" \
+                -f "name=${name}" \
+                -f "color=${color}" \
+                -f "description=${description}" >/dev/null
+              echo "created ${name}"
+            fi
+          done
