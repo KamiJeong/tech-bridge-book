@@ -1,6 +1,6 @@
-name: "$speckit-auto Codex task"
-description: "Ask Codex to run the Spec Kit auto workflow for this issue."
-title: "$speckit-auto: "
+name: "Request help with content or project work"
+description: "Describe what you want changed, created, reviewed, or prepared."
+title: "Request: "
 labels:
   - "trigger:speckit-auto"
   - "agent:codex"
@@ -10,64 +10,64 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this template for Codex-only work that should be handled through the `$speckit-auto` workflow. Codex will comment as it works and update labels after each phase.
+        Use this form to request help with writing, reviewing, organizing, or preparing project work. The assistant will leave progress comments and update labels as it works.
   - type: textarea
     id: trigger
     attributes:
-      label: Trigger
-      description: Keep `$speckit-auto` in this issue so Codex can recognize the workflow.
+      label: Assistant marker
+      description: Please leave this unchanged. It helps the assistant route the request correctly.
       value: "$speckit-auto"
     validations:
       required: true
   - type: dropdown
     id: mode
     attributes:
-      label: Mode
-      description: Choose how far Codex may proceed.
+      label: How much help do you want?
+      description: Choose whether the assistant should only prepare a plan or may also make changes.
       options:
-        - "gated"
-        - "auto-implement"
-        - "auto-pr"
+        - "Prepare a plan and ask before making changes (gated)"
+        - "Make safe, low-risk changes after checking the plan (auto-implement)"
+        - "Make changes and prepare a draft pull request (auto-pr)"
       default: 0
     validations:
       required: true
   - type: textarea
     id: request
     attributes:
-      label: Request
-      description: Describe the feature, bug, workflow change, or documentation change.
-      placeholder: "What should Codex implement or prepare?"
+      label: What do you need?
+      description: Describe the content, document, workflow, or project change you want.
+      placeholder: "What should be changed, created, reviewed, or prepared?"
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
-      label: Scope and constraints
-      description: List files, areas, languages, safety limits, or anything Codex must not change.
-      placeholder: "In scope: ...\nOut of scope: ..."
+      label: Important limits
+      description: Mention any files, topics, languages, or areas that should be included or avoided.
+      placeholder: "Please include: ...\nPlease avoid: ..."
     validations:
       required: false
   - type: textarea
     id: acceptance
     attributes:
-      label: Acceptance criteria
-      description: List observable outcomes that make this issue complete.
+      label: How will we know this is done?
+      description: List the results you expect to see when the work is complete.
       placeholder: "- ...\n- ..."
     validations:
       required: true
   - type: textarea
     id: validation
     attributes:
-      label: Validation
-      description: Commands or checks Codex should run when relevant.
+      label: Checks to run
+      description: Add any review steps, commands, or checks the assistant should use if relevant.
       placeholder: "- ..."
     validations:
       required: false
   - type: textarea
     id: subissues
     attributes:
-      label: Sub-issue guidance
-      description: If this is broad, say whether Codex may create linked sub-issues.
-      value: "Codex may create linked sub-issues when the work is too broad or has independent slices."
+      label: Can this be split into smaller issues?
+      description: If the request is broad, say whether the assistant may create linked follow-up issues.
+      value: "The assistant may create linked follow-up issues when the work is too broad or has separate parts."
     validations:
       required: false
