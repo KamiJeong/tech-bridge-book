@@ -54,6 +54,8 @@
   .agents/skills/speckit-guards/scripts/validate-agent-definitions.sh --agent-dir "$tmp_dir" && exit 1 || true
   printf 'name = "speckit-slicer"\nphase = "slicing"\n' > "$tmp_dir/speckit-slicer.toml"
   .agents/skills/speckit-guards/scripts/validate-agent-definitions.sh --agent-dir "$tmp_dir" && exit 1 || true
+  printf 'name = "speckit-slicer"\ndescription = "Bad role."\nphase = "slicing"\ninputs = ["unsupported"]\ndeveloper_instructions = """\nInputs:\nOutputs:\nResponsibilities:\nProhibited actions:\nToken analysis:\nsteps/slicing.json\nStop conditions:\n"""\n' > "$tmp_dir/speckit-slicer.toml"
+  .agents/skills/speckit-guards/scripts/validate-agent-definitions.sh --agent-dir "$tmp_dir" && exit 1 || true
   rm -rf "$tmp_dir"
   ```
 

@@ -11,6 +11,8 @@ test -d .agents/skills/speckit-rules
 test -d .agents/skills/speckit-guards
 test -d .agents/skills/speckit-token-observability
 test -d .specify/token-analysis
+test -f .github/labels.json
+test -f .github/ISSUE_TEMPLATE/speckit-auto.yml
 ```
 
 ## 2. Check Required Agents
@@ -108,3 +110,14 @@ Inspect `speckit-pr-creator.toml` and `speckit-auto/SKILL.md` to verify PR bodie
 - Token budget status:
 - Notes:
 ```
+
+## 10. Validate GitHub Issue Trigger Assets
+
+```bash
+jq empty .github/labels.json
+python3 -c 'import yaml; yaml.safe_load(open(".github/ISSUE_TEMPLATE/speckit-auto.yml", encoding="utf-8"))'
+rg '\$speckit-auto' .agents/skills/speckit-auto/SKILL.md .github/ISSUE_TEMPLATE/speckit-auto.yml
+```
+
+Expected result: labels parse as JSON, the issue template parses as YAML, and
+both the skill and issue template document the `$speckit-auto` trigger.

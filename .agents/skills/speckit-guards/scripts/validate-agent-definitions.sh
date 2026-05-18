@@ -43,13 +43,15 @@ expected_phases = {
     "speckit-token-reporter": "token reporting",
 }
 
-required_string_fields = ("name", "description", "phase", "token_analysis")
-required_list_fields = (
-    "inputs",
-    "outputs",
-    "responsibilities",
-    "prohibited_actions",
-    "stop_conditions",
+required_string_fields = ("name", "description", "phase", "developer_instructions")
+allowed_fields = set(required_string_fields)
+required_instruction_sections = (
+    "Inputs:",
+    "Outputs:",
+    "Responsibilities:",
+    "Prohibited actions:",
+    "Token analysis:",
+    "Stop conditions:",
 )
 
 step_names = {
@@ -78,17 +80,15 @@ else:
             errors.append(f"{path}: definition must be a TOML table")
             continue
 
+        unknown_fields = sorted(set(data) - allowed_fields)
+        if unknown_fields:
+            fields = ", ".join(f"`{field}`" for field in unknown_fields)
+            errors.append(f"{path}: unsupported Codex agent role field(s): {fields}")
+
         for field in required_string_fields:
             value = data.get(field)
             if not isinstance(value, str) or not value.strip():
                 errors.append(f"{path}: `{field}` must be a non-empty string")
-
-        for field in required_list_fields:
-            value = data.get(field)
-            if not isinstance(value, list) or not value:
-                errors.append(f"{path}: `{field}` must be a non-empty array")
-            elif not all(isinstance(item, str) and item.strip() for item in value):
-                errors.append(f"{path}: `{field}` must contain only non-empty strings")
 
         if data.get("name") != role:
             errors.append(f"{path}: `name` must be `{role}`")
@@ -96,11 +96,16 @@ else:
         if data.get("phase") != phase:
             errors.append(f"{path}: `phase` must be `{phase}`")
 
-        token_analysis = data.get("token_analysis", "")
+        developer_instructions = data.get("developer_instructions", "")
+        if isinstance(developer_instructions, str):
+            for section in required_instruction_sections:
+                if section not in developer_instructions:
+                    errors.append(f"{path}: `developer_instructions` must include `{section}`")
+
         step_name = step_names.get(phase, phase)
         expected_step = f"steps/{step_name}.json"
-        if isinstance(token_analysis, str) and expected_step not in token_analysis:
-            errors.append(f"{path}: `token_analysis` must reference `{expected_step}`")
+        if isinstance(developer_instructions, str) and expected_step not in developer_instructions:
+            errors.append(f"{path}: `developer_instructions` must reference `{expected_step}`")
 
     for path in sorted(agent_dir.glob("*.toml")):
         if path.stem not in expected_phases:
