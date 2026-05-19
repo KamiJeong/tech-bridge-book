@@ -1,0 +1,89 @@
+{
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "scenario": "GitHub issue #19 Codex CLI 101 Korean Markdown course",
+  "preset": "auto-pr",
+  "model": "gpt-5",
+  "timestamp": "2026-05-19T00:40:54Z",
+  "step_count": 12,
+  "tokens": {
+    "total_input": 45900,
+    "total_output": 15500,
+    "total": 61400,
+    "cache_read": 0,
+    "cache_creation": 0
+  },
+  "steps": [
+    {
+      "command": "gh-pr-create",
+      "input": 1200,
+      "output": 600,
+      "total": 1800
+    },
+    {
+      "command": "validation-checks",
+      "input": 2600,
+      "output": 700,
+      "total": 3300
+    },
+    {
+      "command": "git-commit-stack",
+      "input": 1200,
+      "output": 500,
+      "total": 1700
+    },
+    {
+      "command": "manual-implement",
+      "input": 9000,
+      "output": 5200,
+      "total": 14200
+    },
+    {
+      "command": "speckit-gh-issue-runner",
+      "input": 6500,
+      "output": 900,
+      "total": 7400
+    },
+    {
+      "command": "stack-integration-check",
+      "input": 2200,
+      "output": 500,
+      "total": 2700
+    },
+    {
+      "command": "manual-plan",
+      "input": 4200,
+      "output": 1500,
+      "total": 5700
+    },
+    {
+      "command": "manual-review",
+      "input": 4800,
+      "output": 900,
+      "total": 5700
+    },
+    {
+      "command": "speckit-scheduler",
+      "input": 4200,
+      "output": 1100,
+      "total": 5300
+    },
+    {
+      "command": "manual-specify",
+      "input": 5200,
+      "output": 2100,
+      "total": 7300
+    },
+    {
+      "command": "manual-tasks",
+      "input": 3000,
+      "output": 900,
+      "total": 3900
+    },
+    {
+      "command": "token-analyzer-generate-report",
+      "input": 1800,
+      "output": 600,
+      "total": 2400
+    }
+  ]
+}

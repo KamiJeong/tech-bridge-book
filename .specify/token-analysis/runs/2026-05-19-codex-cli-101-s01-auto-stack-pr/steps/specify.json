@@ -4,11 +4,11 @@
   "agent_name": "codex",
   "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
   "slice_id": "s01",
-  "timestamp": "2026-05-19T00:26:49Z",
+  "timestamp": "2026-05-19T00:32:05Z",
   "model": "gpt-5",
-  "input_tokens": null,
-  "output_tokens": null,
-  "total_tokens": null,
+  "input_tokens": 5200,
+  "output_tokens": 2100,
+  "total_tokens": 7300,
   "estimated_tokens": {
     "input": 5200,
     "output": 2100,
@@ -21,9 +21,9 @@
   "capture_method": "estimated",
   "notes": "Created course feature specification from issue #19.",
   "tokens": {
-    "input": 0,
-    "output": 0,
-    "total": 0,
+    "input": 5200,
+    "output": 2100,
+    "total": 7300,
     "cache_read": 0,
     "cache_creation": 0
   }

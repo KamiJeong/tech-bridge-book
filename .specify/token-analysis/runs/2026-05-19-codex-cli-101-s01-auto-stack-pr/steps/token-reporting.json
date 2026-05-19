@@ -1,0 +1,30 @@
+{
+  "phase": "token-reporting",
+  "command": "token-analyzer-generate-report",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "slice_id": "s03",
+  "timestamp": "2026-05-19T00:32:57Z",
+  "model": "gpt-5",
+  "input_tokens": 1800,
+  "output_tokens": 600,
+  "total_tokens": 2400,
+  "estimated_tokens": {
+    "input": 1800,
+    "output": 600,
+    "total": 2400
+  },
+  "artifact_paths": [
+    ".specify/token-analysis/runs/2026-05-19-codex-cli-101-s01-auto-stack-pr/report.md"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Generated final token summary and report.",
+  "tokens": {
+    "input": 1800,
+    "output": 600,
+    "total": 2400,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

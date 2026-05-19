@@ -1,0 +1,9 @@
+{
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "scenario": "GitHub issue #19 Codex CLI 101 Korean Markdown course",
+  "preset": "auto-pr",
+  "issue": 19,
+  "mode": "auto-pr",
+  "date": "2026-05-19",
+  "notes": "Token counts are estimated because exact runtime usage was unavailable through the local workflow. The run started as auto-stack-pr, but GitHub rejected stacked PR submission because stacked PRs are not enabled for this repository; user approved publishing as one normal draft PR."
+}

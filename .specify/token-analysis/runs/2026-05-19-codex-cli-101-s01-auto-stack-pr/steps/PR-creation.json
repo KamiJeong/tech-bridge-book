@@ -1,0 +1,30 @@
+{
+  "phase": "PR-creation",
+  "command": "gh-pr-create",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "slice_id": "s03",
+  "timestamp": "2026-05-19T00:40:37Z",
+  "model": "gpt-5",
+  "input_tokens": 1200,
+  "output_tokens": 600,
+  "total_tokens": 1800,
+  "estimated_tokens": {
+    "input": 1200,
+    "output": 600,
+    "total": 1800
+  },
+  "artifact_paths": [
+    "issue-19-codex-cli-101-s03-exercises-guide"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "User approved replacing stacked PR publication with one normal draft PR against main.",
+  "tokens": {
+    "input": 1200,
+    "output": 600,
+    "total": 1800,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

@@ -4,11 +4,11 @@
   "agent_name": "codex",
   "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
   "slice_id": "s01",
-  "timestamp": "2026-05-19T00:24:17Z",
+  "timestamp": "2026-05-19T00:32:05Z",
   "model": "gpt-5",
-  "input_tokens": null,
-  "output_tokens": null,
-  "total_tokens": null,
+  "input_tokens": 6500,
+  "output_tokens": 900,
+  "total_tokens": 7400,
   "estimated_tokens": {
     "input": 6500,
     "output": 900,
@@ -21,9 +21,9 @@
   "capture_method": "estimated",
   "notes": "Fetched issue #19, confirmed trigger and mode, selected as only runnable queued issue.",
   "tokens": {
-    "input": 0,
-    "output": 0,
-    "total": 0,
+    "input": 6500,
+    "output": 900,
+    "total": 7400,
     "cache_read": 0,
     "cache_creation": 0
   }

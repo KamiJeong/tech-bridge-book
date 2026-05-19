@@ -1,0 +1,30 @@
+{
+  "phase": "integration",
+  "command": "stack-integration-check",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "slice_id": "s03",
+  "timestamp": "2026-05-19T00:32:18Z",
+  "model": "gpt-5",
+  "input_tokens": 2200,
+  "output_tokens": 500,
+  "total_tokens": 2700,
+  "estimated_tokens": {
+    "input": 2200,
+    "output": 500,
+    "total": 2700
+  },
+  "artifact_paths": [
+    "SUMMARY.md"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Checked stack slice boundaries and final navigation links.",
+  "tokens": {
+    "input": 2200,
+    "output": 500,
+    "total": 2700,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "phase": "analyze",
+  "command": "validation-checks",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "slice_id": "s03",
+  "timestamp": "2026-05-19T00:32:18Z",
+  "model": "gpt-5",
+  "input_tokens": 2600,
+  "output_tokens": 700,
+  "total_tokens": 3300,
+  "estimated_tokens": {
+    "input": 2600,
+    "output": 700,
+    "total": 3300
+  },
+  "artifact_paths": [
+    "content/ko/courses/codex-cli-101"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Required files, chapter sections, SUMMARY links, and safety language checks passed.",
+  "tokens": {
+    "input": 2600,
+    "output": 700,
+    "total": 3300,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

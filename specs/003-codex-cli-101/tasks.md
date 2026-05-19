@@ -22,9 +22,9 @@
 
 ## Phase 3: Practice and Teaching Materials
 
-- [ ] T013 Create `exercises/README.md`.
-- [ ] T014 Create chapter exercise pages.
-- [ ] T015 Create `prompts/codex-cli-prompts.md`.
-- [ ] T016 Create `instructor-guide.md`.
-- [ ] T017 Validate required files and chapter section structure.
-- [ ] T018 Generate token report and update GitHub issue.
+- [X] T013 Create `exercises/README.md`.
+- [X] T014 Create chapter exercise pages.
+- [X] T015 Create `prompts/codex-cli-prompts.md`.
+- [X] T016 Create `instructor-guide.md`.
+- [X] T017 Validate required files and chapter section structure.
+- [X] T018 Generate token report and update GitHub issue.

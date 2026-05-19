@@ -4,11 +4,11 @@
   "agent_name": "codex",
   "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
   "slice_id": "s01",
-  "timestamp": "2026-05-19T00:26:49Z",
+  "timestamp": "2026-05-19T00:32:05Z",
   "model": "gpt-5",
-  "input_tokens": null,
-  "output_tokens": null,
-  "total_tokens": null,
+  "input_tokens": 4200,
+  "output_tokens": 1500,
+  "total_tokens": 5700,
   "estimated_tokens": {
     "input": 4200,
     "output": 1500,
@@ -21,9 +21,9 @@
   "capture_method": "estimated",
   "notes": "Created implementation plan and constitution check.",
   "tokens": {
-    "input": 0,
-    "output": 0,
-    "total": 0,
+    "input": 4200,
+    "output": 1500,
+    "total": 5700,
     "cache_read": 0,
     "cache_creation": 0
   }

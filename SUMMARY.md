@@ -23,6 +23,9 @@
     - [Running Tests](content/ko/courses/codex-cli-101/docs/05-run-tests.md)
     - [Reviewing Changes](content/ko/courses/codex-cli-101/docs/06-review-changes.md)
     - [Spec Kit Workflow](content/ko/courses/codex-cli-101/docs/07-spec-kit-workflow.md)
+    - [Exercises](content/ko/courses/codex-cli-101/exercises/README.md)
+    - [Prompt Library](content/ko/courses/codex-cli-101/prompts/codex-cli-prompts.md)
+    - [Instructor Guide](content/ko/courses/codex-cli-101/instructor-guide.md)
 
 ## English
 
