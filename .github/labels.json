@@ -35,6 +35,11 @@
     "description": "Issue is intended for Codex agent work"
   },
   {
+    "name": "agent:claude",
+    "color": "A371F7",
+    "description": "Issue is intended for Claude agent work"
+  },
+  {
     "name": "trigger:speckit-auto",
     "color": "1D76DB",
     "description": "Issue should be handled by the $speckit-auto workflow"
@@ -53,6 +58,11 @@
     "name": "mode:auto-pr",
     "color": "0E8A16",
     "description": "speckit-auto may implement, validate, commit, push, and open a draft PR"
+  },
+  {
+    "name": "mode:auto-stack-pr",
+    "color": "0E8A16",
+    "description": "speckit-auto may implement validated slices and publish them as stacked draft PRs with gh-stack"
   },
   {
     "name": "relationship:parent",

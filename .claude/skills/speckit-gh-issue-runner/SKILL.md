@@ -1,18 +1,18 @@
 ---
 name: "speckit-gh-issue-runner"
-description: "Find up to three open GitHub issues marked for $speckit-auto, inspect them, and run the existing speckit-auto workflow sequentially with issue labels and comments."
+description: "Find up to three open GitHub issues marked for /speckit-auto, inspect them, and run the existing Claude speckit-auto workflow sequentially with issue labels and comments."
 compatibility: "Requires GitHub access, the speckit-auto skill, and repository issue labels"
 ---
 
 # Spec Kit GitHub Issue Runner
 
 Use this skill when the user asks to check GitHub issues, take issues from GitHub,
-process multiple `$speckit-auto` issues, or run a maximum of three issues through
+process multiple `/speckit-auto` issues, or run a maximum of three issues through
 `speckit-auto`.
 
 This skill only owns issue discovery and queue handling. After an issue is
-selected, follow `.agents/skills/speckit-auto/SKILL.md` for the actual workflow
-and `.agents/skills/speckit-token-observability/SKILL.md` for required token
+selected, follow `.claude/skills/speckit-auto/SKILL.md` for the actual workflow
+and `.claude/skills/speckit-token-observability/SKILL.md` for required token
 analysis.
 
 ## Limits
@@ -22,20 +22,20 @@ analysis.
 - Process issues sequentially unless the user explicitly asks only for a dry-run
   queue summary.
 - Prefer `gated` mode unless the issue explicitly requests `auto-implement` or
-  `auto-pr`.
+  `auto-pr` or `auto-stack-pr`.
 - Do not auto-commit or create a PR unless the issue explicitly grants
-  `auto-commit` or `auto-pr` permission.
+  `auto-commit`, `auto-pr`, or `auto-stack-pr` permission.
 
 ## Discovery
 
 From the repository root, list candidate issues:
 
 ```bash
-.agents/skills/speckit-gh-issue-runner/scripts/list-speckit-auto-issues.sh
+.claude/skills/speckit-gh-issue-runner/scripts/list-speckit-auto-issues.sh
 ```
 
 The script returns up to three open issues whose title, body, or comments contain
-`$speckit-auto`.
+`/speckit-auto`.
 
 If the script fails because `gh` is unavailable or unauthenticated, use the
 GitHub app tools if available. If neither route works, stop and report the
@@ -62,13 +62,14 @@ When the user asks to "check issues" without numbers:
 For each selected issue:
 
 1. Fetch issue title, body, labels, comments, checklists, and linked sub-issues.
-2. Confirm `$speckit-auto` appears in the title, body, or comments.
+2. Confirm `/speckit-auto` appears in the title, body, or comments.
 3. Determine mode from issue labels or issue template text:
    - `mode:gated` or `(gated)` -> `gated`
    - `mode:auto-implement` or `(auto-implement)` -> `auto-implement`
    - `mode:auto-pr` or `(auto-pr)` -> `auto-pr`
+   - `mode:auto-stack-pr` or `(auto-stack-pr)` -> `auto-stack-pr`
 4. If no mode is present, use `gated`.
-5. Add or preserve `trigger:speckit-auto`, `agent:codex`, exactly one `mode:*`
+5. Add or preserve `trigger:speckit-auto`, `agent:claude`, exactly one `mode:*`
    label, and `status:in-progress`.
 6. Add a short issue comment before starting intake.
 

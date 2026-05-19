@@ -22,9 +22,9 @@ analysis.
 - Process issues sequentially unless the user explicitly asks only for a dry-run
   queue summary.
 - Prefer `gated` mode unless the issue explicitly requests `auto-implement` or
-  `auto-pr`.
+  `auto-pr` or `auto-stack-pr`.
 - Do not auto-commit or create a PR unless the issue explicitly grants
-  `auto-commit` or `auto-pr` permission.
+  `auto-commit`, `auto-pr`, or `auto-stack-pr` permission.
 
 ## Discovery
 
@@ -70,6 +70,7 @@ For each selected issue:
    - `mode:gated` or `(gated)` -> `gated`
    - `mode:auto-implement` or `(auto-implement)` -> `auto-implement`
    - `mode:auto-pr` or `(auto-pr)` -> `auto-pr`
+   - `mode:auto-stack-pr` or `(auto-stack-pr)` -> `auto-stack-pr`
 4. If no mode is present, use `gated`.
 5. Add or preserve `trigger:speckit-auto`, `agent:codex`, exactly one `mode:*`
    label, and `status:in-progress`.
