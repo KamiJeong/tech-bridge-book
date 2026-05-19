@@ -1,6 +1,6 @@
-name: "Codex request"
-description: "Ask Codex to plan, implement, or prepare project work."
-title: "$speckit-auto Codex Request: "
+name: "작업 요청"
+description: "문서 수정, 프로젝트 변경, 검토 요청을 남깁니다."
+title: "작업 요청: "
 labels:
   - "trigger:speckit-auto"
   - "agent:codex"
@@ -10,57 +10,56 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this form when Codex should handle the request. Codex will leave progress comments and update labels as it works.
+        필요한 결과를 편하게 적어 주세요. 작업이 진행되면 진행 상황을 댓글로 남깁니다.
   - type: dropdown
     id: mode
     attributes:
-      label: How much help do you want?
-      description: Choose whether the assistant should only prepare a plan or may also make changes.
+      label: 어디까지 진행할까요?
+      description: 요청을 이해한 뒤 어디까지 맡길지 선택해 주세요.
       options:
-        - "Prepare a plan and ask before making changes (gated)"
-        - "Make safe, low-risk changes after checking the plan (auto-implement)"
-        - "Make changes and prepare a draft pull request (auto-pr)"
-        - "Make sliced changes and prepare stacked draft pull requests (auto-stack-pr)"
+        - "먼저 계획을 받고, 승인한 뒤에 파일을 바꾸기"
+        - "계획 확인 후 안전하고 작은 변경까지 맡기기"
+        - "변경을 완료하고 검토용 요청서 하나까지 준비하기"
       default: 0
     validations:
       required: true
   - type: textarea
     id: request
     attributes:
-      label: What do you need?
-      description: Describe the content, document, workflow, or project change you want.
-      placeholder: "What should be changed, created, reviewed, or prepared?"
+      label: 무엇이 필요하신가요?
+      description: 만들거나 고치거나 검토해야 할 내용을 적어 주세요.
+      placeholder: "무엇을 바꾸거나 만들거나 검토하면 될까요?"
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
-      label: Important limits
-      description: Mention any files, topics, languages, or areas that should be included or avoided.
-      placeholder: "Please include: ...\nPlease avoid: ..."
+      label: 꼭 지켜야 할 조건
+      description: 포함해야 할 내용, 피해야 할 내용, 다룰 언어와 범위를 적어 주세요.
+      placeholder: "포함할 내용: ...\n피할 내용: ..."
     validations:
       required: false
   - type: textarea
     id: acceptance
     attributes:
-      label: How will we know this is done?
-      description: List the results you expect to see when the work is complete.
+      label: 완료 기준
+      description: 어떤 결과가 나오면 완료로 볼 수 있는지 적어 주세요.
       placeholder: "- ...\n- ..."
     validations:
       required: true
   - type: textarea
     id: validation
     attributes:
-      label: Checks to run
-      description: Add any review steps, commands, or checks the assistant should use if relevant.
+      label: 확인 방법
+      description: 필요한 검토 방법이나 확인 절차가 있으면 적어 주세요.
       placeholder: "- ..."
     validations:
       required: false
   - type: textarea
     id: subissues
     attributes:
-      label: Can this be split into smaller issues?
-      description: If the request is broad, say whether the assistant may create linked follow-up issues.
-      value: "The assistant may create linked follow-up issues when the work is too broad or has separate parts."
+      label: 큰 작업이면 나눠도 되나요?
+      description: 요청이 넓거나 여러 부분으로 나뉘면 연결된 후속 요청을 만들어도 되는지 적어 주세요.
+      value: "작업이 너무 크거나 서로 다른 부분으로 나뉘면 연결된 후속 요청을 만들어도 됩니다."
     validations:
       required: false

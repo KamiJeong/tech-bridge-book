@@ -11,23 +11,27 @@ availability with `.agents/skills/speckit-guards/scripts/guard-token-analyzer-av
 
 ## GitHub Issue Trigger Mode
 
-When a GitHub issue title, body, or comment contains `$speckit-auto`, treat the
-issue as an instruction to run this skill for Codex-only work. Use the issue body
-as the feature request and inspect linked comments, checklists, and sub-issues
-before starting. `/speckit-auto` is reserved for Claude issue routing and MUST
-NOT be claimed by the Codex issue runner unless the issue also explicitly
-contains `$speckit-auto`.
+When a GitHub issue has the `trigger:speckit-auto` and `agent:codex` labels, or
+when its title, body, or comment contains `$speckit-auto`, treat the issue as an
+instruction to run this skill for Codex-only work. Use the issue body as the
+feature request and inspect linked comments, checklists, and sub-issues before
+starting. `/speckit-auto` is reserved for Claude issue routing and MUST NOT be
+claimed by the Codex issue runner unless the issue also has the `agent:codex`
+label or explicitly contains `$speckit-auto`.
 
 This trigger does not override normal safety gates. Follow the requested mode
-from the issue when present; otherwise use `gated`. Treat human-readable issue
-template choices that include `(gated)`, `(auto-implement)`, or `(auto-pr)` as
-the corresponding mode. Also treat `(auto-stack-pr)` as stacked PR mode.
+from the issue when present; otherwise use `gated`. Treat issue template choices
+that say "plan first" or "wait for approval" as `gated`, choices that say "safe,
+low-risk changes" as `auto-implement`, and choices that say "one draft pull
+request" as `auto-pr`. Also treat Korean choices that say "먼저 계획", "승인한
+뒤" as `gated`, "안전하고 작은 변경" as `auto-implement`, and "검토용 요청서
+하나" as `auto-pr`.
 Implementation is allowed only when the issue explicitly requests
-`auto-implement`, `auto-pr`, `auto-stack-pr`, or when the user has already
-approved implementation in the current conversation. `auto-commit`, `auto-pr`,
-and `auto-stack-pr` are supported terminal actions, but they still require
-explicit permission before Codex commits, pushes, opens a PR, or submits a PR
-stack.
+`auto-implement`, `auto-pr`, or when the user has already approved
+implementation in the current conversation. `auto-commit` and `auto-pr` are
+supported terminal actions, but they still require explicit permission before
+Codex commits, pushes, or opens a PR. Stacked PR publication is currently not
+supported; use a single draft PR instead.
 
 Use GitHub issue labels as live workflow state:
 
@@ -150,10 +154,7 @@ implementation, commit, and PR. In `auto-implement`, implement only when analyze
 passes and the slice is low risk. In `auto-commit`, validate, token-report, and
 commit only when explicit permission is present. In `auto-pr`, implement,
 validate, token-report, commit, push, and create a draft PR only when explicitly
-requested. In `auto-stack-pr`, implement validated slices as an ordered stack,
-commit each slice separately, run integration before publication, then use
-`gh stack submit --auto` to create or update stacked draft PRs only when
-explicitly requested.
+requested.
 
 ## Integration
 
@@ -167,7 +168,7 @@ Commit only after review and validation pass. Use conventional commits by
 default. Commit only intended files, never secrets, and include token-analysis
 artifacts only when they belong to the current run. `auto-commit` is an explicit
 permission flag, not a standalone mode, and may be used to authorize the commit
-step of an `auto-pr` or `auto-stack-pr` run.
+step of an `auto-pr` run.
 
 ## Draft PR
 
@@ -175,14 +176,8 @@ Use GitHub CLI. Create draft PRs by default. Never push directly from `main`,
 `master`, or `develop`. Include changed files, spec, plan, tasks, tests, risks,
 reviewer notes, and token summary. Print PR URLs after creation.
 
-For `auto-stack-pr`, use `gh stack` rather than individual `gh pr create`
-commands. The scheduler's dependency order becomes the stack order: foundation
-or shared-contract slices closest to the trunk, dependent slices above them.
-Each stack branch must contain only its slice changes plus required token
-artifacts for the current run. Run the PR guard with stacked mode enabled before
-submitting, then use `gh stack submit --auto` so PRs remain drafts by default.
-Stop before submission if the stack order is unclear, a slice is not separately
-committed, `gh stack` is missing, or the current branch is protected.
+Create exactly one draft PR for the completed workflow. If the work has multiple
+slices, integrate the completed slices before creating that single draft PR.
 
 Required PR section:
 

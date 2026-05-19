@@ -56,7 +56,9 @@ rank_filter='
 
 queued_json="$(
   gh issue list \
-    --search '$speckit-auto in:title,body,comments state:open label:"status:queued"' \
+    --state open \
+    --label "trigger:speckit-auto" \
+    --label "status:queued" \
     --limit "$fetch_limit" \
     --json number,title,labels,url,updatedAt \
     --jq "$rank_filter | .[:$limit]"
@@ -71,7 +73,8 @@ fi
 
 fallback_json="$(
   gh issue list \
-    --search '$speckit-auto in:title,body,comments state:open -label:"status:queued"' \
+    --state open \
+    --label "trigger:speckit-auto" \
     --limit "$fetch_limit" \
     --json number,title,labels,url,updatedAt \
     --jq "$rank_filter"

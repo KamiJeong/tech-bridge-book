@@ -91,9 +91,8 @@ Before a full workflow starts, run
 If token-analyzer is missing:
 
 - `plan-only` and `gated`: continue only after a clear warning.
-- `auto-implement`, `auto-pr`, `auto-stack-pr`, or any run with `auto-commit`
-  enabled: stop before automation unless the user explicitly approves
-  continuing.
+- `auto-implement`, `auto-pr`, or any run with `auto-commit` enabled: stop
+  before automation unless the user explicitly approves continuing.
 
 Recommended installation command:
 
