@@ -20,6 +20,6 @@ if ! command -v gh >/dev/null 2>&1; then
 fi
 
 gh issue list \
-  --search '$speckit-auto in:title,body,comments state:open' \
+  --search '/speckit-auto in:title,body,comments state:open' \
   --limit "$limit" \
   --json number,title,labels,url,updatedAt

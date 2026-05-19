@@ -2,11 +2,13 @@
 set -euo pipefail
 
 ALLOW_MISSING_TOKEN_ANALYZER="false"
+STACKED_PR="false"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --allow-missing-token-analyzer) ALLOW_MISSING_TOKEN_ANALYZER="true"; shift ;;
-    -h|--help) echo "Usage: $0 [--allow-missing-token-analyzer]"; exit 0 ;;
+    --stacked-pr) STACKED_PR="true"; shift ;;
+    -h|--help) echo "Usage: $0 [--allow-missing-token-analyzer] [--stacked-pr]"; exit 0 ;;
     *) echo "Unknown argument: $1" >&2; exit 2 ;;
   esac
 done
@@ -27,8 +29,16 @@ if ! gh auth status >/dev/null 2>&1; then
   exit 1
 fi
 
-args=(--mode auto-pr)
+if [[ "$STACKED_PR" == "true" ]] && ! gh stack --version >/dev/null 2>&1; then
+  echo "FAIL: gh stack extension is not installed or not working" >&2
+  echo "Install with: gh extension install github/gh-stack" >&2
+  exit 1
+fi
+
+mode="auto-pr"
+[[ "$STACKED_PR" == "true" ]] && mode="auto-stack-pr"
+args=(--mode "$mode")
 [[ "$ALLOW_MISSING_TOKEN_ANALYZER" == "true" ]] && args+=(--allow-missing)
-.agents/skills/speckit-guards/scripts/guard-token-analyzer-available.sh "${args[@]}"
+.claude/skills/speckit-guards/scripts/guard-token-analyzer-available.sh "${args[@]}"
 
 echo "PASS: PR guard checks passed"

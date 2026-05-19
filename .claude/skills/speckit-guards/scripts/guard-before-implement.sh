@@ -33,10 +33,10 @@ if [[ "$TEST_STATUS" != "pass" ]]; then
   exit 1
 fi
 
-if [[ "$MODE" == "auto-implement" || "$MODE" == "auto-pr" ]]; then
+if [[ "$MODE" == "auto-implement" || "$MODE" == "auto-pr" || "$MODE" == "auto-stack-pr" ]]; then
   args=(--mode "$MODE")
   [[ "$ALLOW_MISSING_TOKEN_ANALYZER" == "true" ]] && args+=(--allow-missing)
-  .agents/skills/speckit-guards/scripts/guard-token-analyzer-available.sh "${args[@]}"
+  .claude/skills/speckit-guards/scripts/guard-token-analyzer-available.sh "${args[@]}"
 fi
 
 echo "PASS: implementation guard checks passed"

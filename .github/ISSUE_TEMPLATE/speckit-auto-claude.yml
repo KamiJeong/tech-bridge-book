@@ -1,22 +1,22 @@
-name: "Codex request"
-description: "Ask Codex to plan, implement, or prepare project work."
-title: "Codex Request: "
+name: "Claude request"
+description: "Ask Claude to plan, implement, or prepare project work."
+title: "Claude Request: "
 labels:
   - "trigger:speckit-auto"
-  - "agent:codex"
+  - "agent:claude"
   - "status:queued"
   - "type:workflow"
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form when Codex should handle the request. Codex will leave progress comments and update labels as it works.
+        Use this form when Claude should handle the request. Claude will leave progress comments and update labels as it works.
   - type: textarea
     id: trigger
     attributes:
       label: Assistant marker
-      description: Leave this as `$speckit-auto` for Codex. It routes the request to the Codex Spec Kit workflow.
-      value: "$speckit-auto"
+      description: Leave this as `/speckit-auto` for Claude. It routes the request to the Claude Spec Kit workflow.
+      value: "/speckit-auto"
     validations:
       required: true
   - type: dropdown

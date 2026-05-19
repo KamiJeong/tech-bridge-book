@@ -13,12 +13,14 @@ Outputs:
 - conflict matrix
 - execution plan
 - strategy decision
+- stack order when `auto-stack-pr` is requested
 
 Responsibilities:
 - choose execution strategy
 - identify parallel-safe slices
 - surface conflicts
 - select stop-and-ask when uncertain
+- order stacked PR slices from trunk-nearest foundation work to dependent work
 
 Prohibited actions:
 - edit application code
@@ -32,4 +34,5 @@ Stop conditions:
 - conflict safety cannot be determined
 - base branch is unclear
 - slice dependencies contradict requirements
+- stacked PR order cannot be determined safely
 """
