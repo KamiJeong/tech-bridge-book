@@ -1,6 +1,6 @@
 name: "Codex request"
 description: "Ask Codex to plan, implement, or prepare project work."
-title: "Codex Request: "
+title: "$speckit-auto Codex Request: "
 labels:
   - "trigger:speckit-auto"
   - "agent:codex"
@@ -11,14 +11,6 @@ body:
     attributes:
       value: |
         Use this form when Codex should handle the request. Codex will leave progress comments and update labels as it works.
-  - type: textarea
-    id: trigger
-    attributes:
-      label: Assistant marker
-      description: Leave this as `$speckit-auto` for Codex. It routes the request to the Codex Spec Kit workflow.
-      value: "$speckit-auto"
-    validations:
-      required: true
   - type: dropdown
     id: mode
     attributes:
