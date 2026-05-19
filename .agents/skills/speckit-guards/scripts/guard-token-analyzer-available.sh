@@ -9,7 +9,7 @@ while [[ $# -gt 0 ]]; do
     --mode) MODE="${2:-gated}"; shift 2 ;;
     --allow-missing) ALLOW_MISSING="true"; shift ;;
     -h|--help)
-      echo "Usage: $0 [--mode plan-only|gated|auto-implement|auto-pr|auto-stack-pr] [--allow-missing]"
+      echo "Usage: $0 [--mode plan-only|gated|auto-implement|auto-pr] [--allow-missing]"
       exit 0
       ;;
     *) echo "Unknown argument: $1" >&2; exit 2 ;;
@@ -38,7 +38,7 @@ fi
 echo "WARNING: token-analyzer is not available. Install with: specify extension add token-analyzer" >&2
 
 case "$MODE" in
-  auto-implement|auto-pr|auto-stack-pr|auto-commit)
+  auto-implement|auto-pr|auto-commit)
     if [[ "$ALLOW_MISSING" == "true" ]]; then
       echo "WARNING: continuing without token-analyzer because explicit approval was provided" >&2
       exit 0

@@ -36,13 +36,11 @@ Default to gated behavior. For a full epic, run:
   permission is present.
 - `auto-pr`: implement, validate, token-report, commit, push, and create a draft
   PR only when explicitly requested.
-- `auto-stack-pr`: implement validated slices as an ordered branch stack,
-  validate, token-report, commit each slice separately, push with `gh stack`,
-  and create stacked draft PRs only when explicitly requested.
 
 `auto-commit` is an explicit permission flag, not a standalone mode. It may be
 enabled for `gated` or `auto-implement` after review and validation pass, and
-it authorizes the commit step inside an `auto-pr` or `auto-stack-pr` run.
+it authorizes the commit step inside an `auto-pr` run. Stacked PR publication is
+currently disabled; use a single draft PR.
 
 ## Slicing And Scheduling
 
@@ -71,7 +69,6 @@ Stop on:
 - unrelated user changes before implementation, commit, or PR
 - unclear base branch
 - missing or unauthenticated GitHub CLI for PR mode
-- missing `gh stack` extension for stacked PR mode
 - protected publishing branches: `main`, `master`, `develop`
 - explicitly configured blocking token budgets
 - missing token-analyzer in automation modes without approval

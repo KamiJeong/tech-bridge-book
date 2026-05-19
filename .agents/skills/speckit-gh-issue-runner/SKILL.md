@@ -7,8 +7,8 @@ compatibility: "Requires GitHub access, the speckit-auto skill, and repository i
 # Spec Kit GitHub Issue Runner
 
 Use this skill when the user asks to check GitHub issues, take issues from GitHub,
-process multiple `$speckit-auto` issues, or run a maximum of three issues through
-`speckit-auto`.
+process issues labeled for the Spec Kit auto workflow, or run a maximum of three
+issues through `speckit-auto`.
 
 This skill only owns issue discovery and queue handling. After an issue is
 selected, follow `.agents/skills/speckit-auto/SKILL.md` for the actual workflow
@@ -22,9 +22,9 @@ analysis.
 - Process issues sequentially unless the user explicitly asks only for a dry-run
   queue summary.
 - Prefer `gated` mode unless the issue explicitly requests `auto-implement` or
-  `auto-pr` or `auto-stack-pr`.
+  `auto-pr`.
 - Do not auto-commit or create a PR unless the issue explicitly grants
-  `auto-commit`, `auto-pr`, or `auto-stack-pr` permission.
+  `auto-commit` or `auto-pr` permission.
 
 ## Discovery
 
@@ -34,11 +34,11 @@ From the repository root, list candidate issues:
 .agents/skills/speckit-gh-issue-runner/scripts/list-speckit-auto-issues.sh
 ```
 
-The script returns up to three open issues whose title, body, or comments contain
-`$speckit-auto`. Discovery MUST fetch `status:queued` candidates first. If fewer
-than three queued issues are available, fetch a wider candidate set before
-applying the three-issue cap, then filter and rank by workflow status so
-completed or blocked issues do not hide runnable work.
+The script returns up to three open issues labeled `trigger:speckit-auto`.
+Discovery MUST fetch `status:queued` candidates first. If fewer than three queued
+issues are available, fetch a wider candidate set before applying the three-issue
+cap, then filter and rank by workflow status so completed or blocked issues do
+not hide runnable work.
 
 If the script fails because `gh` is unavailable or unauthenticated, use the
 GitHub app tools if available. If neither route works, stop and report the
@@ -65,12 +65,14 @@ When the user asks to "check issues" without numbers:
 For each selected issue:
 
 1. Fetch issue title, body, labels, comments, checklists, and linked sub-issues.
-2. Confirm `$speckit-auto` appears in the title, body, or comments.
+2. Confirm the issue has the `trigger:speckit-auto` and `agent:codex` labels, or
+   `$speckit-auto` appears in the title, body, or comments.
 3. Determine mode from issue labels or issue template text:
-   - `mode:gated` or `(gated)` -> `gated`
-   - `mode:auto-implement` or `(auto-implement)` -> `auto-implement`
-   - `mode:auto-pr` or `(auto-pr)` -> `auto-pr`
-   - `mode:auto-stack-pr` or `(auto-stack-pr)` -> `auto-stack-pr`
+   - `mode:gated`, `(gated)`, "plan first", or "wait for approval" -> `gated`
+   - `mode:auto-implement`, `(auto-implement)`, or "safe, low-risk changes" -> `auto-implement`
+   - `mode:auto-pr`, `(auto-pr)`, or "one draft pull request" -> `auto-pr`
+   - Korean choices map as follows: "먼저 계획" or "승인한 뒤" -> `gated`,
+     "안전하고 작은 변경" -> `auto-implement`, and "검토용 요청서 하나" -> `auto-pr`
 4. If no mode is present, use `gated`.
 5. Add or preserve `trigger:speckit-auto`, `agent:codex`, exactly one `mode:*`
    label, and `status:in-progress`.
