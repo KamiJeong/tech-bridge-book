@@ -1,0 +1,30 @@
+{
+  "phase": "intake",
+  "command": "speckit-gh-issue-runner",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "slice_id": "s01",
+  "timestamp": "2026-05-19T00:24:17Z",
+  "model": "gpt-5",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 6500,
+    "output": 900,
+    "total": 7400
+  },
+  "artifact_paths": [
+    "https://github.com/KamiJeong/tech-bridge-book/issues/19"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Fetched issue #19, confirmed trigger and mode, selected as only runnable queued issue.",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

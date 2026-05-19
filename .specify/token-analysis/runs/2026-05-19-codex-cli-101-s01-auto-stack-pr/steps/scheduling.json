@@ -1,0 +1,30 @@
+{
+  "phase": "scheduling",
+  "command": "speckit-scheduler",
+  "agent_name": "speckit-scheduler",
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "slice_id": "s01",
+  "timestamp": "2026-05-19T00:26:04Z",
+  "model": "gpt-5",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 4200,
+    "output": 1100,
+    "total": 5300
+  },
+  "artifact_paths": [
+    "specs/003-codex-cli-101/plan.md"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Selected foundation-first-then-parallel strategy with three stacked slices: foundation, chapters, exercises-guide.",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}

@@ -13,6 +13,8 @@
   - [Lesson Template](content/ko/templates/lesson-template.md)
   - [Exercise Template](content/ko/templates/exercise-template.md)
   - [Thinking Question Template](content/ko/templates/thinking-question-template.md)
+- [Courses](content/ko/courses/codex-cli-101/README.md)
+  - [Codex CLI 101](content/ko/courses/codex-cli-101/README.md)
 
 ## English
 
