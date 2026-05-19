@@ -11,14 +11,14 @@
 
 ## Phase 2: Core Lessons
 
-- [ ] T005 Create `docs/00-overview.md`.
-- [ ] T006 Create `docs/01-installation.md`.
-- [ ] T007 Create `docs/02-basic-usage.md`.
-- [ ] T008 Create `docs/03-read-codebase.md`.
-- [ ] T009 Create `docs/04-fix-bug.md`.
-- [ ] T010 Create `docs/05-run-tests.md`.
-- [ ] T011 Create `docs/06-review-changes.md`.
-- [ ] T012 Create `docs/07-spec-kit-workflow.md`.
+- [X] T005 Create `docs/00-overview.md`.
+- [X] T006 Create `docs/01-installation.md`.
+- [X] T007 Create `docs/02-basic-usage.md`.
+- [X] T008 Create `docs/03-read-codebase.md`.
+- [X] T009 Create `docs/04-fix-bug.md`.
+- [X] T010 Create `docs/05-run-tests.md`.
+- [X] T011 Create `docs/06-review-changes.md`.
+- [X] T012 Create `docs/07-spec-kit-workflow.md`.
 
 ## Phase 3: Practice and Teaching Materials
 

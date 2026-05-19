@@ -15,6 +15,14 @@
   - [Thinking Question Template](content/ko/templates/thinking-question-template.md)
 - [Courses](content/ko/courses/codex-cli-101/README.md)
   - [Codex CLI 101](content/ko/courses/codex-cli-101/README.md)
+    - [Codex CLI Overview](content/ko/courses/codex-cli-101/docs/00-overview.md)
+    - [Installation and Login](content/ko/courses/codex-cli-101/docs/01-installation.md)
+    - [Basic Usage](content/ko/courses/codex-cli-101/docs/02-basic-usage.md)
+    - [Reading a Codebase](content/ko/courses/codex-cli-101/docs/03-read-codebase.md)
+    - [Fixing a Bug](content/ko/courses/codex-cli-101/docs/04-fix-bug.md)
+    - [Running Tests](content/ko/courses/codex-cli-101/docs/05-run-tests.md)
+    - [Reviewing Changes](content/ko/courses/codex-cli-101/docs/06-review-changes.md)
+    - [Spec Kit Workflow](content/ko/courses/codex-cli-101/docs/07-spec-kit-workflow.md)
 
 ## English
 

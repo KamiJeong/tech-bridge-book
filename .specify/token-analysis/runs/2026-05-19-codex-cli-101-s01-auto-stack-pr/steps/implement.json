@@ -1,0 +1,30 @@
+{
+  "phase": "implement",
+  "command": "manual-implement",
+  "agent_name": "codex",
+  "run_label": "2026-05-19-codex-cli-101-s01-auto-stack-pr",
+  "slice_id": "s02",
+  "timestamp": "2026-05-19T00:29:33Z",
+  "model": "gpt-5",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "estimated_tokens": {
+    "input": 9000,
+    "output": 5200,
+    "total": 14200
+  },
+  "artifact_paths": [
+    "content/ko/courses/codex-cli-101/docs"
+  ],
+  "quality_notes": "",
+  "capture_method": "estimated",
+  "notes": "Implemented eight Korean learner chapters with required section structure.",
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "cache_read": 0,
+    "cache_creation": 0
+  }
+}
